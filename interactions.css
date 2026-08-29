@@ -1,0 +1,3 @@
+.filters button { cursor: pointer; }
+.filters button.selected { background: var(--dark); color: #fff; }
+.case-card[hidden] { display: none; }
