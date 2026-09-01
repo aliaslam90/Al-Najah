@@ -86,6 +86,29 @@ export function initializeInteractions() {
     });
   });
 
+  const testimonialCard = document.querySelector('[data-test-card]');
+  if (testimonialCard) {
+    const items = JSON.parse(testimonialCard.dataset.testimonials || '[]');
+    let current = 0;
+    const renderTestimonial = direction => {
+      const [quote,name,place,initial] = items[current];
+      const update = () => {
+        testimonialCard.querySelector('[data-test-quote]').textContent = '“'+quote+'”';
+        testimonialCard.querySelector('[data-test-name]').textContent = name;
+        testimonialCard.querySelector('[data-test-place]').textContent = place;
+        testimonialCard.querySelector('[data-test-initial]').textContent = initial;
+        document.querySelector('[data-test-count]').textContent = (current+1)+' / '+items.length;
+      };
+      if (reduceMotion.matches) return update();
+      testimonialCard.animate([{opacity:1,transform:'translateX(0)'},{opacity:0,transform:`translateX(${direction*18}px)`}],{duration:150,easing:'ease-in'}).finished.then(() => {
+        update();
+        testimonialCard.animate([{opacity:0,transform:`translateX(${-direction*18}px)`},{opacity:1,transform:'translateX(0)'}],{duration:260,easing:'ease-out'});
+      });
+    };
+    document.querySelector('[data-test-prev]').addEventListener('click', () => {current=(current-1+items.length)%items.length;renderTestimonial(-1)});
+    document.querySelector('[data-test-next]').addEventListener('click', () => {current=(current+1)%items.length;renderTestimonial(1)});
+  }
+
   document.querySelectorAll('.case-card').forEach(card => {
     const button = document.createElement('button');
     button.className = 'case-open';
@@ -120,7 +143,7 @@ export function initializeInteractions() {
         }
       });
     }, {threshold:0.06,rootMargin:'0px 0px 24px 0px'});
-    document.querySelectorAll('.service-row,.workflow,.section-head,.split,.case-panel').forEach(element => {
+    document.querySelectorAll('.service-row,.workflow,.section-head,.split,.case-panel,.home-page section').forEach(element => {
       element.classList.add('reveal');
       observer.observe(element);
     });
