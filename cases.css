@@ -1,0 +1,30 @@
+.page-cases main{display:flex;flex-direction:column}
+.cases-hero{text-align:center;color:#1f2937;padding:64px 32px}
+.cases-hero h1{font:400 72px/1.04 Fraunces,serif;letter-spacing:-.02em;margin:24px 0}
+.cases-hero p{font-size:18px;line-height:1.55;color:#4b5563;margin:0}
+.cases-archive{width:100%;max-width:1440px;padding:64px 68px;margin:0 auto}
+.page-cases .filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 48px}
+.page-cases .filters button{background:#d8dad9;color:#1f2937;border:0;border-radius:999px;padding:10px 20px;margin:0;font:500 16px/19.5px Inter,sans-serif;cursor:pointer}
+.page-cases .filters button.selected{background:#fafaf8;color:#33333d}
+.page-cases .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.page-cases .case-card{height:auto;aspect-ratio:421.333/526.664;border:1px solid rgba(250,250,248,.75);border-radius:24px;overflow:hidden;position:relative;color:#fff;background:#33333d}
+.page-cases .case-card>img{width:100%;height:100%;object-fit:cover;opacity:.8}
+.page-cases .case-card:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(51,51,61,0) 45%,#000 100%)}
+.page-cases .case-category{position:absolute;z-index:2;left:24px;top:24px;font:500 16px/15px Inter,sans-serif;text-transform:uppercase}
+.page-cases .case-copy{position:absolute;z-index:2;left:24px;right:24px;bottom:24px}
+.page-cases .case-copy small{display:block;font:500 16px/15px Inter,sans-serif;text-transform:uppercase;margin-bottom:8px}
+.page-cases .case-copy h3{font:400 22px/23.75px Fraunces,serif}
+.page-cases .case-open{position:absolute;z-index:3;right:24px;top:24px;width:36px;height:36px;border:0;border-radius:50%;background:#fafaf8;display:grid;place-items:center;cursor:pointer}
+.page-cases .case-open .icon{width:16px;height:16px}
+.page-cases .case-panel{margin-top:16px}
+@media(max-width:900px){
+ .cases-hero{padding:48px 20px}.cases-hero h1{font-size:48px}.cases-hero br{display:none}
+ .cases-archive{padding:44px 20px}.page-cases .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .cases-hero h1{font-size:38px}.cases-hero p{font-size:16px}
+ .cases-archive{padding:36px 16px}.page-cases .filters{gap:8px;margin-bottom:32px}
+ .page-cases .filters button{padding:9px 15px;font-size:14px}
+ .page-cases .gallery{grid-template-columns:1fr;gap:16px}
+ .page-cases .case-card{aspect-ratio:4/5}
+}

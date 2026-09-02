@@ -33,6 +33,8 @@ export function initializeInteractions() {
       const open = button.getAttribute('aria-expanded') !== 'true';
       button.setAttribute('aria-expanded', String(open));
       button.closest('.faq-item').classList.toggle('open', open);
+      const symbol = button.querySelector('.faq-symbol');
+      if (symbol) symbol.textContent = open ? '−' : '+';
       panel.inert = !open;
     });
   });
