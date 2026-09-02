@@ -10,10 +10,10 @@ const technology=[
   ['424-2494-img-svg5.svg','3D Printing','In-house printing of models, surgical guides, and try-ins often overnight.']
 ];
 const featuredCases=[
-  ['424-2585-img-anterior-lithium-disilicate-veneers.png','Anterior Lithium Disilicate Veneers','Aesthetic 8 Unit'],
-  ['424-2585-img-article.png','Full-Arch Zirconia, Screw-Retained + Cemented','Implant - 12 units'],
-  ['424-2585-img-article1.png','Posterior Monolithic Crowns','Restorative - 4 units'],
-  ['424-2585-img-article2.png','Digital Complete Denture','Removable - Full upper']
+  ['424-2585-img-anterior-lithium-disilicate-veneers.png','Aesthetic · 8 units','Anterior Lithium Disilicate Veneers'],
+  ['424-2585-img-article.png','Implant · 12 units','Full-Arch Zirconia, Screw-Retained + Cemented'],
+  ['424-2585-img-article1.png','Restorative · 4 units','Posterior Monolithic Crowns'],
+  ['424-2585-img-article2.png','Removable · Full upper','Digital Complete Denture']
 ];
 const services=[
   ['Fixed','Prosthetics','Crowns, bridges, and inlays crafted with precision for lasting aesthetics and function.'],
@@ -76,5 +76,5 @@ export function renderHomepage(){return `
 
     <section class="hp-gallery"><div class="hp-section-head"><div><p class="hp-kicker">Featured Work</p><h2>Precision. Artistry.<br><i>Quiet detail.</i></h2></div><a class="hp-outline" href="cases.html">View Full Gallery <span>${arrow}</span></a></div><div class="hp-gallery-grid">${gallery.map(([im,k,h],i)=>`<a href="cases.html">${fig(im,h)}<span class="hp-photo-shade"></span><span class="hp-gallery-top">[ ${i+1} ] <b>${arrow}</b></span><span class="hp-gallery-copy"><small>${k}</small><strong>${h}</strong></span></a>`).join('')}</div></section>
 
-    <section class="hp-testimonials"><div class="hp-test-copy"><p class="hp-kicker">Patient Stories</p><h2>Trusted by<br><i>GCC clinicians.</i></h2><p>Real experiences from our clinic partners — leaders in their fields who depend on Al Najah for exceptional results.</p><div class="hp-test-controls"><button type="button" data-test-prev aria-label="Previous testimonial">←</button><button type="button" data-test-next aria-label="Next testimonial">→</button><span data-test-count>1 / 4</span></div></div><div class="hp-test-card" data-test-card data-testimonials='${JSON.stringify(testimonials)}'><div class="hp-stars">★★★★★</div><blockquote data-test-quote>“${testimonials[0][0]}”</blockquote><div class="hp-person"><span data-test-initial>${testimonials[0][3]}</span><p><b data-test-name>${testimonials[0][1]}</b><small data-test-place>${testimonials[0][2]}</small></p></div></div></section>
+    <section class="hp-testimonials"><div class="hp-test-copy"><p class="hp-kicker">Patient Stories</p><h2>Trusted by<br><i>GCC clinicians.</i></h2><p>Real experiences from our clinic partners — leaders in their fields who depend on Al Najah for exceptional results.</p><div class="hp-test-controls"><button type="button" data-test-prev aria-label="Previous testimonial">←</button><button type="button" data-test-next aria-label="Next testimonial">→</button><span data-test-count>1 / 4</span><div class="hp-test-dots" data-test-dots>${testimonials.map((_,i)=>`<button type="button" class="hp-test-dot ${i===0?'active':''}" data-test-dot="${i}" aria-label="Go to testimonial ${i+1}"></button>`).join('')}</div></div></div><div class="hp-test-card" data-test-card data-testimonials='${JSON.stringify(testimonials)}'><div class="hp-stars">★★★★★</div><blockquote data-test-quote>“${testimonials[0][0]}”</blockquote><div class="hp-person"><span data-test-initial>${testimonials[0][3]}</span><p><b data-test-name>${testimonials[0][1]}</b><small data-test-place>${testimonials[0][2]}</small></p></div></div></section>
   </div>`}

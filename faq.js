@@ -36,7 +36,7 @@ export const renderFaq = () => `
         const id=`answer-${groupIndex}-${itemIndex}`;
         return `<div class="faq-item ${open?'open':''}">
           <button class="faq-question" type="button" aria-expanded="${open}" aria-controls="${id}">
-            <span>${item[0]}</span><span class="faq-symbol" aria-hidden="true">${open?'−':'+'}</span>
+            <span>${item[0]}</span><span class="faq-indicator" aria-hidden="true"><img class="icon plus" src="/assets/icons/plus.svg" alt=""><img class="icon minus" src="/assets/icons/minus.svg" alt=""></span>
           </button>
           <div class="answer" id="${id}"><div>${item[1]}</div></div>
         </div>`;

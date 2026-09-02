@@ -2,6 +2,11 @@ export function initializeInteractions() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const menu = document.querySelector('.menu');
   const links = document.querySelector('.links');
+  const navWrap = document.querySelector('.nav-wrap');
+
+  // ──────────────────────────────────────────
+  //  Mobile menu
+  // ──────────────────────────────────────────
   const setMenu = open => {
     links.classList.toggle('mobile-open', open);
     menu.setAttribute('aria-expanded', String(open));
@@ -20,6 +25,34 @@ export function initializeInteractions() {
   });
   window.matchMedia('(min-width: 1201px)').addEventListener('change', () => setMenu(false));
 
+  // ──────────────────────────────────────────
+  //  Nav hide-on-scroll-down / show-on-scroll-up
+  // ──────────────────────────────────────────
+  if (!reduceMotion.matches && navWrap) {
+    let lastY = 0;
+    let ticking = false;
+    const navHeight = 130;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (y > navHeight) {
+            navWrap.classList.toggle('nav-hidden', y > lastY && y > navHeight * 2);
+            navWrap.classList.add('nav-scrolled');
+          } else {
+            navWrap.classList.remove('nav-hidden', 'nav-scrolled');
+          }
+          lastY = y;
+          ticking = false;
+        });
+      }
+    }, {passive:true});
+  }
+
+  // ──────────────────────────────────────────
+  //  FAQ accordion
+  // ──────────────────────────────────────────
   document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('keydown', event => {
       if (event.key === 'Enter' || event.key === ' ') {
@@ -33,12 +66,13 @@ export function initializeInteractions() {
       const open = button.getAttribute('aria-expanded') !== 'true';
       button.setAttribute('aria-expanded', String(open));
       button.closest('.faq-item').classList.toggle('open', open);
-      const symbol = button.querySelector('.faq-symbol');
-      if (symbol) symbol.textContent = open ? '−' : '+';
       panel.inert = !open;
     });
   });
 
+  // ──────────────────────────────────────────
+  //  Misc: service features, workflow icons, filters
+  // ──────────────────────────────────────────
   const filters = document.querySelectorAll('[data-filter]');
   document.querySelectorAll('.service-features li').forEach(item => {
     const check = document.createElement('img');
@@ -71,7 +105,9 @@ export function initializeInteractions() {
     });
   });
 
-  // These forms have no backend. Open a draft, never claim a request was sent.
+  // ──────────────────────────────────────────
+  //  Forms (mailto-based, no backend)
+  // ──────────────────────────────────────────
   document.querySelectorAll('[data-case-form], [data-newsletter]').forEach(form => {
     form.addEventListener('submit', event => {
       event.preventDefault();
@@ -88,10 +124,14 @@ export function initializeInteractions() {
     });
   });
 
+  // ──────────────────────────────────────────
+  //  Testimonial carousel + auto-play
+  // ──────────────────────────────────────────
   const testimonialCard = document.querySelector('[data-test-card]');
   if (testimonialCard) {
     const items = JSON.parse(testimonialCard.dataset.testimonials || '[]');
     let current = 0;
+    let autoTimer = null;
     const renderTestimonial = direction => {
       const [quote,name,place,initial] = items[current];
       const update = () => {
@@ -99,7 +139,11 @@ export function initializeInteractions() {
         testimonialCard.querySelector('[data-test-name]').textContent = name;
         testimonialCard.querySelector('[data-test-place]').textContent = place;
         testimonialCard.querySelector('[data-test-initial]').textContent = initial;
-        document.querySelector('[data-test-count]').textContent = (current+1)+' / '+items.length;
+        const countEl = document.querySelector('[data-test-count]');
+        if (countEl) countEl.textContent = (current+1)+' / '+items.length;
+        document.querySelectorAll('[data-test-dot]').forEach((d, idx) => {
+          d.classList.toggle('active', idx === current);
+        });
       };
       if (reduceMotion.matches) return update();
       testimonialCard.animate([{opacity:1,transform:'translateX(0)'},{opacity:0,transform:`translateX(${direction*18}px)`}],{duration:150,easing:'ease-in'}).finished.then(() => {
@@ -107,10 +151,64 @@ export function initializeInteractions() {
         testimonialCard.animate([{opacity:0,transform:`translateX(${-direction*18}px)`},{opacity:1,transform:'translateX(0)'}],{duration:260,easing:'ease-out'});
       });
     };
-    document.querySelector('[data-test-prev]').addEventListener('click', () => {current=(current-1+items.length)%items.length;renderTestimonial(-1)});
-    document.querySelector('[data-test-next]').addEventListener('click', () => {current=(current+1)%items.length;renderTestimonial(1)});
+    const goNext = () => {current=(current+1)%items.length;renderTestimonial(1);};
+    const goPrev = () => {current=(current-1+items.length)%items.length;renderTestimonial(-1);};
+    const resetAuto = () => { clearInterval(autoTimer); autoTimer = setInterval(goNext, 6000); };
+    const prevBtn = document.querySelector('[data-test-prev]');
+    const nextBtn = document.querySelector('[data-test-next]');
+    if (prevBtn) prevBtn.addEventListener('click', () => { goPrev(); resetAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { goNext(); resetAuto(); });
+    document.querySelectorAll('[data-test-dot]').forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.dataset.testDot, 10);
+        if (idx === current) return;
+        const dir = idx > current ? 1 : -1;
+        current = idx;
+        renderTestimonial(dir);
+        resetAuto();
+      });
+    });
+    // Auto-advance every 6s
+    autoTimer = setInterval(goNext, 6000);
+    // Pause on hover
+    testimonialCard.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    testimonialCard.addEventListener('mouseleave', resetAuto);
+    // Mobile touch swipe support
+    let touchStartX = 0;
+    testimonialCard.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive:true});
+    testimonialCard.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diff) > 40) {
+        if (diff < 0) goNext();
+        else goPrev();
+        resetAuto();
+      }
+    }, {passive:true});
   }
 
+  // ──────────────────────────────────────────
+  //  Interactive Digital Workflow step highlight
+  // ──────────────────────────────────────────
+  const workflowSteps = document.querySelectorAll('.hp-workflow-grid article');
+  if (workflowSteps.length) {
+    workflowSteps.forEach((step, idx) => {
+      step.addEventListener('mouseenter', () => {
+        workflowSteps.forEach((s, i) => s.classList.toggle('step-active', i === idx));
+      });
+    });
+    const workflowGrid = document.querySelector('.hp-workflow-grid');
+    if (workflowGrid) {
+      workflowGrid.addEventListener('mouseleave', () => {
+        workflowSteps.forEach(s => s.classList.remove('step-active'));
+      });
+    }
+  }
+
+  // ──────────────────────────────────────────
+  //  Case card lightbox
+  // ──────────────────────────────────────────
   document.querySelectorAll('.case-card').forEach(card => {
     const button = document.createElement('button');
     button.className = 'case-open';
@@ -136,6 +234,63 @@ export function initializeInteractions() {
     });
   });
 
+  // ──────────────────────────────────────────
+  //  Magnetic button effect on CTAs
+  // ──────────────────────────────────────────
+  if (!reduceMotion.matches && window.matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.hp-pill, .order, .hp-outline, .ep-actions a').forEach(el => {
+      el.addEventListener('mousemove', e => {
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width/2) * 0.15;
+        const y = (e.clientY - rect.top - rect.height/2) * 0.15;
+        el.style.transform = `translate(${x}px,${y}px)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  // ──────────────────────────────────────────
+  //  Parallax on hero image
+  // ──────────────────────────────────────────
+  if (!reduceMotion.matches) {
+    const heroImg = document.querySelector('.hp-hero > img');
+    if (heroImg) {
+      let rafId = null;
+      window.addEventListener('scroll', () => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (y < 1200) {
+            heroImg.style.transform = `scale(1.05) translateY(${y * 0.12}px)`;
+          }
+          rafId = null;
+        });
+      }, {passive:true});
+    }
+  }
+
+  // ──────────────────────────────────────────
+  //  Tilt effect on gallery/case cards
+  // ──────────────────────────────────────────
+  if (!reduceMotion.matches && window.matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.hp-case, .hp-gallery-grid > a, .hp-service-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(800px) rotateY(${x*6}deg) rotateX(${-y*6}deg) scale(1.01)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  // ──────────────────────────────────────────
+  //  Scroll-reveal system (expanded for ALL pages)
+  // ──────────────────────────────────────────
   if (!reduceMotion.matches && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -145,9 +300,177 @@ export function initializeInteractions() {
         }
       });
     }, {threshold:0.06,rootMargin:'0px 0px 24px 0px'});
-    document.querySelectorAll('.service-row,.workflow,.section-head,.split,.case-panel,.home-page section').forEach(element => {
+
+    const revealSelectors = [
+      '.service-row', '.workflow', '.section-head', '.split', '.case-panel',
+      '.home-page section',
+      '.hp-stats', '.hp-foundation', '.hp-tech-grid', '.hp-case-grid',
+      '.hp-service-grid', '.hp-workflow-grid', '.hp-benefit-grid',
+      '.hp-choose', '.hp-logo-grid', '.hp-gallery-grid', '.hp-testimonials',
+      '.hp-two-head', '.hp-section-head', '.hp-workflow-head',
+      '.hp-choose-head', '.hp-possible', '.hp-promise',
+      '.ap-hero', '.ap-story', '.ap-story-image', '.ap-story-copy',
+      '.ap-principles', '.ap-principles-head',
+      '.sp-hero', '.sp-row',
+      '.tech-hero', '.tech-showcase-row', '.tech-stack', '.tech-process',
+      '.tech-qc', '.tech-guidance',
+      '.ep-hero', '.ep-steps', '.ep-include', '.ep-guidance',
+      '.cases-hero', '.cases-archive',
+      '.faq-hero', '.faq-group',
+      '.contact-hero', '.contact-locations',
+      '.footer-grid', '.case-panel .form',
+    ];
+
+    document.querySelectorAll(revealSelectors.join(',')).forEach(element => {
       element.classList.add('reveal');
       observer.observe(element);
+    });
+
+    // Stagger children in grids
+    const staggerSelectors = [
+      '.hp-tech-grid', '.hp-benefit-grid', '.hp-workflow-grid', '.hp-service-grid',
+      '.hp-cap-grid', '.hp-logo-grid', '.hp-gallery-grid', '.hp-case-grid',
+      '.hp-stats',
+      '.ap-card-grid', '.ep-step-grid', '.ep-include-grid', '.ep-guidance-grid',
+      '.tech-stack-grid', '.tech-steps', '.tech-qc-grid', '.tech-guidance-grid',
+      '.hp-foundation-cards',
+    ];
+
+    const staggerObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const children = entry.target.children;
+          for (let i = 0; i < children.length; i++) {
+            children[i].style.transitionDelay = `${i * 90}ms`;
+            children[i].classList.add('revealed');
+          }
+          staggerObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.05, rootMargin:'0px 0px 24px 0px'});
+
+    document.querySelectorAll(staggerSelectors.join(',')).forEach(grid => {
+      const children = grid.children;
+      for (let i = 0; i < children.length; i++) {
+        children[i].classList.add('reveal-child');
+      }
+      staggerObserver.observe(grid);
+    });
+
+    // Case cards stagger
+    const caseCards = document.querySelectorAll('.case-card');
+    if (caseCards.length) {
+      const cardObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.08, rootMargin:'0px 0px 24px 0px'});
+      caseCards.forEach((card, i) => {
+        card.classList.add('reveal-child');
+        card.style.transitionDelay = `${i * 60}ms`;
+        cardObserver.observe(card);
+      });
+    }
+
+    // Text split reveal for headings
+    document.querySelectorAll('.hp-foundation h2, .hp-choose-head h2, .hp-benefits h2, .hp-workflow h2, .hp-partners h2').forEach(h2 => {
+      h2.classList.add('reveal-text');
+      observer.observe(h2);
+    });
+  }
+
+  // ──────────────────────────────────────────
+  //  Hero entrance animation
+  // ──────────────────────────────────────────
+  if (!reduceMotion.matches) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.add('page-loaded');
+      });
+    });
+  } else {
+    document.body.classList.add('page-loaded');
+  }
+
+  // ──────────────────────────────────────────
+  //  Count-up animation for homepage stats
+  // ──────────────────────────────────────────
+  if (!reduceMotion.matches) {
+    const statsSection = document.querySelector('.hp-stats');
+    if (statsSection) {
+      const statStrongs = statsSection.querySelectorAll('strong');
+      const originalValues = Array.from(statStrongs).map(el => el.textContent);
+
+      const countObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            countObserver.unobserve(entry.target);
+            statStrongs.forEach((el, i) => {
+              const raw = originalValues[i];
+              const match = raw.match(/^([\d,.]+)(.*)$/);
+              if (!match) return;
+              const target = parseFloat(match[1].replace(/,/g, ''));
+              const suffix = match[2];
+              const hasK = raw.includes('K');
+              const duration = 1800;
+              const start = performance.now();
+
+              const step = now => {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                let current = Math.round(eased * target);
+                if (hasK) {
+                  el.textContent = current + suffix;
+                } else {
+                  el.textContent = current.toLocaleString() + suffix;
+                }
+                if (progress < 1) requestAnimationFrame(step);
+              };
+              requestAnimationFrame(step);
+            });
+          }
+        });
+      }, {threshold: 0.3});
+      countObserver.observe(statsSection);
+    }
+  }
+
+  // ──────────────────────────────────────────
+  //  Scroll progress bar
+  // ──────────────────────────────────────────
+  if (!reduceMotion.matches) {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.prepend(progressBar);
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }, {passive:true});
+  }
+
+  // ──────────────────────────────────────────
+  //  Smooth cursor glow on dark sections
+  // ──────────────────────────────────────────
+  if (!reduceMotion.matches && window.matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.hp-choose, .hp-hero').forEach(section => {
+      const glow = document.createElement('div');
+      glow.className = 'cursor-glow';
+      section.style.position = section.style.position || 'relative';
+      section.append(glow);
+      section.addEventListener('mousemove', e => {
+        const rect = section.getBoundingClientRect();
+        glow.style.left = (e.clientX - rect.left) + 'px';
+        glow.style.top = (e.clientY - rect.top) + 'px';
+        glow.style.opacity = '1';
+      });
+      section.addEventListener('mouseleave', () => {
+        glow.style.opacity = '0';
+      });
     });
   }
 }

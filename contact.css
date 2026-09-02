@@ -64,7 +64,7 @@
 }
 
 .contact-map-card > img { position:absolute; inset:0; }
-.contact-map-note { position:absolute; left:24px; bottom:24px; padding:24px; background:#fff; color:#000; }
+.contact-map-note { position:absolute; left:24px; bottom:24px; padding:24px; background:#fff; color:#000; border-radius:16px; }
 .contact-map-note span { display:block; font-family:Inter,Arial,sans-serif; font-size:12px; line-height:16px; letter-spacing:2.16px; text-transform:uppercase; }
 .contact-map-note p { margin:10px 0 0; font-family:Inter,Arial,sans-serif; font-size:18px; line-height:28px; }
 

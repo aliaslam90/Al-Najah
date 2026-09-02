@@ -11,7 +11,7 @@ export function renderContact() {
   return `
     <header class="contact-hero">
       <div class="contact-eyebrow">Contact Us</div>
-      <h1>Three cities</h1>
+      <h1>Get in touch</h1>
       <p>Reach out for a partnership conversation, a price list, or just to talk <br>through a tricky case. We respond fast.</p>
     </header>
     <section class="contact-locations" aria-label="Abu Dhabi location">
