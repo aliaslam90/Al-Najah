@@ -1,0 +1,71 @@
+.page-technology main{display:flex;flex-direction:column;gap:80px}
+.tech-hero{padding:64px 32px 0;text-align:center;color:#1f2937}
+.tech-hero h1{font:400 clamp(48px,5vw,72px)/1.04 Fraunces,serif;letter-spacing:-.02em;margin:24px 0}
+.tech-hero p{font-size:20px;line-height:1.4;color:#4b5563;margin:0}
+.tech-showcase,.tech-process,.tech-guidance{width:calc(100% - 64px);max-width:1376px;margin:0 auto}
+.tech-showcase{display:flex;flex-direction:column;gap:64px}
+.tech-showcase-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px;height:451px;align-items:center}
+.tech-showcase-row.reverse .tech-showcase-image{order:2}
+.tech-showcase-image{position:relative;height:451px;border:1px solid rgba(255,255,255,.7);border-radius:24px;overflow:hidden}
+.tech-showcase-image:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,34,.38),transparent 42%)}
+.tech-showcase-image img{width:100%;height:100%;object-fit:cover;display:block}
+.tech-showcase-copy{padding:0;color:#1f2937}
+.tech-icon{display:grid;place-items:center;width:48px;height:48px;background:#fff;border-radius:50%;flex:0 0 auto}
+.tech-icon img{width:22px;height:22px}
+.tech-showcase-copy .eyebrow{margin:24px 0 18px}
+.tech-showcase-copy h2{font:400 48px/.945 Fraunces,serif;letter-spacing:-.02em;margin:0 0 24px;max-width:620px}
+.tech-showcase-copy p{color:#4b5563;font-size:18px;line-height:1.51;max-width:620px;margin:0}
+.tech-surface{background:#d8dad9;color:#1f2937;padding:80px 32px}
+.tech-section-heading h2,.tech-process h2{font:400 56px/1.05 Fraunces,serif;letter-spacing:-.02em;margin:28px 0 56px}
+.tech-section-heading h2 i,.tech-process h2 i{font-weight:400}
+.tech-stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1376px;margin:0 auto}
+.tech-stack>.tech-section-heading,.tech-qc>.tech-section-heading{max-width:1376px;margin:0 auto}
+.tech-stack-card,.tech-qc-grid article{background:#fff;border-radius:24px;padding:28px 24px;min-height:350px}
+.tech-card-top{display:flex;align-items:center;justify-content:space-between}
+.tech-stack-card h3,.tech-qc-grid h3,.tech-guidance-grid h3{font:400 30px/1 Fraunces,serif;margin:32px 0 14px}
+.tech-stack-card p,.tech-qc-grid p,.tech-guidance-grid p{color:#4b5563;font-size:16px;line-height:1.45;margin:0}
+.tech-stack-card ul{list-style:none;border-top:1px solid #edf0f2;margin:28px 0 0;padding:16px 0 0;color:#4b5563;font-size:15px;line-height:1.55}
+.tech-process{padding:0}
+.tech-process-intro{display:flex;justify-content:space-between;align-items:flex-end}
+.tech-process-intro h2{margin-bottom:0;font-size:64px}
+.tech-process-intro>p{max-width:580px;color:#4b5563;font-size:18px;line-height:1.7;margin:0 0 7px}
+.tech-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:48px;margin-top:70px}
+.tech-step-icon{position:relative;width:82px}
+.tech-step-icon>span{display:grid;place-items:center;width:80px;height:80px;background:#fff;border-radius:50%}
+.tech-step-icon img{width:28px;height:28px}
+.tech-step-icon b{position:absolute;right:-6px;top:-8px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#fff;font:600 12px Inter,sans-serif}
+.tech-steps h3{font:400 30px/1 Fraunces,serif;margin:28px 0 14px}
+.tech-steps p{color:#4b5563;font-size:15px;line-height:1.55;margin:0}
+.tech-qc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1376px;margin:0 auto}
+.tech-qc-grid article{min-height:244px}
+.tech-qc-grid strong{font:400 48px/1 Fraunces,serif}
+.tech-guidance{border-radius:32px}
+.tech-guidance-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.tech-guidance-grid article{display:flex;gap:28px;align-items:flex-start;background:#fff;border-radius:24px;padding:28px 24px;min-height:168px}
+.tech-guidance-grid h3{margin:0 0 12px}
+.tech-guidance-actions{display:flex;gap:16px;margin-top:48px}
+.tech-outline-btn{background:transparent!important;color:#1f2937!important;border:1px solid #1f2937}
+.page-technology .case-panel{width:calc(100% - 64px);max-width:1376px;margin:0 auto}
+@media(max-width:900px){
+ .page-technology main{gap:48px}
+ .tech-hero{padding-top:40px}.tech-hero h1{font-size:42px}.tech-hero p{font-size:16px}.tech-hero br{display:none}
+ .tech-showcase,.tech-process,.tech-guidance{width:calc(100% - 32px)}
+ .tech-showcase{gap:48px}.tech-showcase-row{grid-template-columns:1fr;gap:0;height:auto}
+ .tech-showcase-row.reverse .tech-showcase-image{order:0}
+ .tech-showcase-image{height:min(76vw,480px);border-radius:24px}
+ .tech-showcase-copy{padding:28px 8px 0}.tech-showcase-copy h2{font-size:36px}
+ .tech-surface{padding:56px 16px}.tech-section-heading h2,.tech-process h2{font-size:42px;margin-bottom:36px}
+ .tech-stack-grid,.tech-qc-grid{grid-template-columns:1fr 1fr}
+ .tech-stack-card{min-height:320px}
+ .tech-process-intro{display:block}.tech-process-intro>p{margin-top:28px}.tech-process-intro br{display:none}
+ .tech-steps{grid-template-columns:1fr 1fr;gap:40px 24px}
+ .tech-guidance-grid{grid-template-columns:1fr}
+ .page-technology .case-panel{width:calc(100% - 32px)}
+}
+@media(max-width:580px){
+ .tech-hero h1{font-size:36px}.tech-showcase-copy h2{font-size:32px}
+ .tech-stack-grid,.tech-qc-grid,.tech-steps{grid-template-columns:1fr}
+ .tech-stack-card{min-height:0}.tech-qc-grid article{min-height:220px}
+ .tech-guidance-grid article{gap:16px}.tech-guidance-grid h3{font-size:25px}
+ .tech-guidance-actions{flex-direction:column;align-items:stretch}.tech-guidance-actions .btn{text-align:center}
+}
