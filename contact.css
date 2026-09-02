@@ -1,0 +1,93 @@
+.contact-hero {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+  padding:64px 68px;
+  text-align:center;
+}
+
+.contact-eyebrow {
+  color:#4b5563;
+  font-size:16px;
+  font-weight:500;
+  line-height:15px;
+  letter-spacing:2.4px;
+  text-transform:uppercase;
+}
+
+.contact-hero h1 {
+  color:#1f2937;
+  font-size:72px;
+  line-height:1.04;
+  letter-spacing:-1.44px;
+}
+
+.contact-hero p {
+  margin:0;
+  color:#4b5563;
+  font-size:18px;
+  line-height:28px;
+}
+
+.contact-locations {
+  display:grid;
+  grid-template-columns:404px minmax(0, 1fr);
+  align-items:start;
+  gap:60px;
+  width:100%;
+  padding:0 32px;
+}
+
+.contact-address-card {
+  display:flex;
+  align-items:center;
+  height:399px;
+  overflow:hidden;
+  padding:28px;
+  background:#d8dad9;
+  border-radius:24px;
+  box-shadow:0 0 0 1px rgba(250,250,248,.06);
+}
+
+.contact-address-list { display:grid; gap:16px; width:100%; }
+.contact-address-row { display:flex; align-items:flex-start; gap:12px; color:#1f2937; font-size:16px; line-height:20px; }
+.contact-address-row img { flex:0 0 16px; width:16px; height:16px; margin-top:2px; object-fit:contain; }
+
+.contact-map-card {
+  position:relative;
+  width:100%;
+  aspect-ratio:1344 / 588;
+  overflow:hidden;
+  border-radius:24px;
+}
+
+.contact-map-card > img { position:absolute; inset:0; }
+.contact-map-note { position:absolute; left:24px; bottom:24px; padding:24px; background:#fff; color:#000; }
+.contact-map-note span { display:block; font-family:Inter,Arial,sans-serif; font-size:12px; line-height:16px; letter-spacing:2.16px; text-transform:uppercase; }
+.contact-map-note p { margin:10px 0 0; font-family:Inter,Arial,sans-serif; font-size:18px; line-height:28px; }
+
+.page-contact .case-panel { margin-top:0; }
+
+@media (max-width:900px) {
+  .contact-hero { padding:52px 24px 60px; }
+  .contact-hero h1 { font-size:54px; }
+  .contact-hero p br { display:none; }
+  .contact-locations { grid-template-columns:1fr; gap:24px; padding:0 20px 40px; }
+  .contact-address-card { height:auto; min-height:260px; }
+  .contact-map-card { aspect-ratio:16 / 9; }
+}
+
+@media (max-width:560px) {
+  .contact-hero { gap:18px; padding:40px 20px 48px; }
+  .contact-eyebrow { font-size:13px; }
+  .contact-hero h1 { font-size:44px; }
+  .contact-hero p { font-size:16px; line-height:25px; }
+  .contact-locations { padding-inline:14px; }
+  .contact-address-card { min-height:230px; padding:24px 20px; }
+  .contact-address-row { font-size:14px; }
+  .contact-map-card { min-height:330px; aspect-ratio:auto; }
+  .contact-map-note { right:16px; bottom:16px; left:16px; padding:20px; }
+  .contact-map-note p { font-size:15px; line-height:23px; }
+}
