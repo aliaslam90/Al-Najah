@@ -86,7 +86,9 @@
   .contact-hero p { font-size:16px; line-height:25px; }
   .contact-locations { padding-inline:14px; }
   .contact-address-card { min-height:230px; padding:24px 20px; }
-  .contact-address-row { font-size:14px; }
+  .contact-address-row { min-height:44px; align-items:center; font-size:14px; }
+  .contact-address-row img { margin-top:0; }
+  .contact-address-row a { display:flex; align-items:center; min-height:44px; }
   .contact-map-card { min-height:330px; aspect-ratio:auto; }
   .contact-map-note { right:16px; bottom:16px; left:16px; padding:20px; }
   .contact-map-note p { font-size:15px; line-height:23px; }
