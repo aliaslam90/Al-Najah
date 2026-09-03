@@ -185,31 +185,19 @@ export function initializeInteractions() {
   if (partnerTrack) {
     const slides = [...partnerTrack.children];
     const itemCount = slides.length / 2;
-    let partnerIndex = 0;
-    let partnerTimer;
-    const renderPartners = (animate = true) => {
-      partnerTrack.style.transition = animate && !reduceMotion.matches ? 'transform .55s cubic-bezier(.19,1,.22,1)' : 'none';
-      partnerTrack.style.transform = `translateX(-${slides[partnerIndex].offsetLeft}px)`;
-      document.querySelectorAll('[data-partner-dot]').forEach((dot, index) => dot.classList.toggle('active', index === partnerIndex % itemCount));
+    let partnerAnimation;
+    const startPartnerMarquee = () => {
+      partnerAnimation?.cancel();
+      partnerAnimation = partnerTrack.animate(
+        [{transform:'translateX(0)'},{transform:`translateX(-${slides[itemCount].offsetLeft}px)`}],
+        {duration:28000,iterations:Infinity,easing:'linear'}
+      );
     };
-    const nextPartner = () => { partnerIndex += 1; renderPartners(); };
-    const prevPartner = () => {
-      if (partnerIndex === 0) { partnerIndex = itemCount; renderPartners(false); partnerTrack.offsetHeight; }
-      partnerIndex -= 1; renderPartners();
-    };
-    partnerTrack.addEventListener('transitionend', () => { if (partnerIndex >= itemCount) { partnerIndex = 0; renderPartners(false); } });
-    const resetPartners = () => { clearInterval(partnerTimer); partnerTimer = setInterval(nextPartner, 4200); };
-    document.querySelector('[data-partner-prev]')?.addEventListener('click', () => { prevPartner(); resetPartners(); });
-    document.querySelector('[data-partner-next]')?.addEventListener('click', () => { nextPartner(); resetPartners(); });
-    document.querySelectorAll('[data-partner-dot]').forEach(dot => dot.addEventListener('click', () => { partnerIndex = Number(dot.dataset.partnerDot); renderPartners(); resetPartners(); }));
     const viewport = partnerTrack.parentElement;
-    viewport.addEventListener('mouseenter', () => clearInterval(partnerTimer));
-    viewport.addEventListener('mouseleave', resetPartners);
-    let startX = 0;
-    viewport.addEventListener('touchstart', event => { startX = event.changedTouches[0].clientX; }, {passive:true});
-    viewport.addEventListener('touchend', event => { const delta = event.changedTouches[0].clientX - startX; if (Math.abs(delta) > 36) delta < 0 ? nextPartner() : prevPartner(); resetPartners(); }, {passive:true});
-    window.addEventListener('resize', () => renderPartners(false));
-    resetPartners();
+    viewport.addEventListener('mouseenter', () => partnerAnimation?.pause());
+    viewport.addEventListener('mouseleave', () => partnerAnimation?.play());
+    window.addEventListener('resize', startPartnerMarquee);
+    startPartnerMarquee();
   }
 
   // ──────────────────────────────────────────
