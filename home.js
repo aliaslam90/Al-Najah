@@ -1,6 +1,9 @@
+import heroVideoUrl from './hero-video/video.mp4?url';
+
 const A='/assets/home/';
 const fig=(name,alt='')=>`<img src="${A}${name}" alt="${alt}">`;
 const arrow='↗';
+const caseHref=slug=>`case-study.html?case=${slug}`;
 
 const technology=[
   ['424-2494-img-svg1.svg','Intraoral Scanning','Open-system digital impressions with sub-micron accuracy from any major scanner.'],
@@ -10,10 +13,10 @@ const technology=[
   ['424-2494-img-svg5.svg','3D Printing','In-house printing of models, surgical guides, and try-ins often overnight.']
 ];
 const featuredCases=[
-  ['424-2585-img-anterior-lithium-disilicate-veneers.png','Aesthetic · 8 units','Anterior Lithium Disilicate Veneers'],
-  ['424-2585-img-article.png','Implant · 12 units','Full-Arch Zirconia, Screw-Retained + Cemented'],
-  ['424-2585-img-article1.png','Restorative · 4 units','Posterior Monolithic Crowns'],
-  ['424-2585-img-article2.png','Removable · Full upper','Digital Complete Denture']
+  ['424-2585-img-anterior-lithium-disilicate-veneers.png','Aesthetic · 8 units','Anterior Lithium Disilicate Veneers','anterior-veneers'],
+  ['424-2585-img-article.png','Implant · 12 units','Full-Arch Zirconia, Screw-Retained + Cemented','full-arch-zirconia'],
+  ['424-2585-img-article1.png','Restorative · 4 units','Posterior Monolithic Crowns','posterior-crowns'],
+  ['424-2585-img-article2.png','Removable · Full upper','Digital Complete Denture','digital-denture']
 ];
 const services=[
   ['Fixed','Prosthetics','Crowns, bridges, and inlays crafted with precision for lasting aesthetics and function.'],
@@ -48,11 +51,12 @@ const testimonials=[
   ['Their digital workflow gives our team confidence. Design approvals are fast, predictable, and genuinely collaborative.','Dr. Omar','Pearl Dental Centre · Doha, Qatar','O'],
   ['Al Najah has become a trusted extension of our clinic — precise work, thoughtful support, and remarkable consistency.','Dr. Lina','The Dental Studio · Manama, Bahrain','L']
 ];
+const partnerLogos=[['424-2919-img-datron-logo1.png','Datron'],['424-2919-img-dynamic-abutment-logo1.png','Dynamic Abutment Solutions'],['424-2919-img-ivoclar-logo1.png','Ivoclar'],['424-2919-img-vita-dental-lab-logo1.png','Vita']];
 
 export function renderHomepage(){return `
   <div class="home-page">
     <section class="hp-hero" aria-label="Engineered Restorations">
-      ${fig('424-2387-img-photo160681184168923dfddce3e95.png','Precision dental laboratory manufacturing')}
+      <video class="hp-hero-media" autoplay muted loop playsinline preload="metadata" poster="${A}424-2387-img-photo160681184168923dfddce3e95.png" aria-label="Precision dental laboratory manufacturing in progress"><source src="${heroVideoUrl}" type="video/mp4"></video>
       <div class="hp-hero-shade"></div><div class="hp-hero-copy"><h1>Engineered Restorations</h1><a class="hp-pill dark" href="#start">Start a Case <span>${arrow}</span></a></div>
       <a class="hp-scroll" href="#foundation">Scroll <span>⌄</span></a>
     </section>
@@ -62,7 +66,7 @@ export function renderHomepage(){return `
 
     <section class="hp-technology hp-band"><div class="hp-two-head"><div><p class="hp-kicker">Digital Dentistry</p><h2>Technology that earns<br><i>clinical confidence.</i></h2></div><div><p>Every restoration runs through a fully digital pipeline — scanning, design, milling, and printing — operated by technicians who treat the software as a tool, not a shortcut.</p><a href="technology.html">Explore our technology <span>${arrow}</span></a></div></div><div class="hp-tech-grid">${technology.map(([ic,h,p])=>`<article><span class="hp-icon">${fig(ic)}</span><h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
 
-    <section class="hp-cases hp-band"><div class="hp-section-head"><div><p class="hp-kicker">Featured Cases</p><h2>Selected work, with the clinical<br><i>detail that matters.</i></h2></div><a href="cases.html">View full case studies <span>${arrow}</span></a></div><div class="hp-case-grid">${featuredCases.map(([im,k,h],i)=>`<a class="hp-case hp-case-${i+1}" href="cases.html">${fig(im,h)}<span class="hp-photo-shade"></span><span class="hp-case-copy"><small>${k}</small><strong>${h}</strong></span></a>`).join('')}</div></section>
+    <section class="hp-cases hp-band"><div class="hp-section-head"><div><p class="hp-kicker">Featured Cases</p><h2>Selected work, with the clinical<br><i>detail that matters.</i></h2></div><a href="cases.html">View full case studies <span>${arrow}</span></a></div><div class="hp-case-grid">${featuredCases.map(([im,k,h,slug],i)=>`<a class="hp-case hp-case-${i+1}" href="${caseHref(slug)}">${fig(im,h)}<span class="hp-photo-shade"></span><span class="hp-case-copy"><small>${k}</small><strong>${h}</strong></span></a>`).join('')}</div></section>
 
     <section class="hp-services"><div class="hp-two-head"><div><p class="hp-kicker">Our Services</p><h2>Comprehensive<br><i>dental solutions.</i></h2></div><p>From fixed prosthetics to digital workflows, every restoration delivered with precision, care, and master craftsmanship.</p></div><div class="hp-service-grid">${services.map(([h,i,p],n)=>`<a class="hp-service-card hp-service-${n+1}" href="services.html"><span class="hp-card-top">[ ${n+1} ] <b>${arrow}</b></span><span class="hp-service-copy"><strong>${h}${i?` <i>${i}</i>`:''}</strong><small>${p}</small>${n===0?'<em>Most Requested</em>':''}</span></a>`).join('')}</div></section>
 
@@ -72,9 +76,9 @@ export function renderHomepage(){return `
 
     <section class="hp-benefits"><p class="hp-kicker">Why Choose Us</p><h2>Get the best<br><i>from every case.</i></h2><div class="hp-benefit-grid">${benefits.map(([ic,h,p])=>`<article><span class="hp-icon white">${fig(ic)}</span><h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
 
-    <section class="hp-partners hp-band"><p class="hp-kicker">Trusted Across the Gulf</p><h2>Partners</h2><div class="hp-logo-grid">${[['424-2919-img-datron-logo1.png','Datron'],['424-2919-img-dynamic-abutment-logo1.png','Dynamic Abutment Solutions'],['424-2919-img-ivoclar-logo1.png','Ivoclar'],['424-2919-img-vita-dental-lab-logo1.png','Vita']].map(([im,a])=>`<div>${fig(im,a)}</div>`).join('')}</div></section>
+    <section class="hp-partners hp-band" aria-roledescription="carousel" aria-label="Technology partners"><div class="hp-partners-head"><div><p class="hp-kicker">Trusted Across the Gulf</p><h2>Partners</h2></div><div class="hp-partner-controls"><button type="button" data-partner-prev aria-label="Previous partner">←</button><button type="button" data-partner-next aria-label="Next partner">→</button></div></div><div class="hp-logo-viewport"><div class="hp-logo-grid" data-partner-track>${[...partnerLogos,...partnerLogos].map(([im,a],i)=>`<div class="hp-logo-slide" ${i>=partnerLogos.length?'aria-hidden="true"':''}>${fig(im,a)}</div>`).join('')}</div></div><div class="hp-partner-dots" aria-label="Choose partner">${partnerLogos.map(([,a],i)=>`<button type="button" class="${i===0?'active':''}" data-partner-dot="${i}" aria-label="Show ${a}"></button>`).join('')}</div></section>
 
-    <section class="hp-gallery"><div class="hp-section-head"><div><p class="hp-kicker">Featured Work</p><h2>Precision. Artistry.<br><i>Quiet detail.</i></h2></div><a class="hp-outline" href="cases.html">View Full Gallery <span>${arrow}</span></a></div><div class="hp-gallery-grid">${gallery.map(([im,k,h],i)=>`<a href="cases.html">${fig(im,h)}<span class="hp-photo-shade"></span><span class="hp-gallery-top">[ ${i+1} ] <b>${arrow}</b></span><span class="hp-gallery-copy"><small>${k}</small><strong>${h}</strong></span></a>`).join('')}</div></section>
+    <section class="hp-gallery"><div class="hp-section-head"><div><p class="hp-kicker">Featured Work</p><h2>Precision. Artistry.<br><i>Quiet detail.</i></h2></div><a class="hp-outline" href="cases.html">View Full Gallery <span>${arrow}</span></a></div><div class="hp-gallery-grid">${gallery.map(([im,k,h],i)=>`<a href="${caseHref(['full-arch-zirconia','implant-bridge','smile-design','layered-crowns'][i])}">${fig(im,h)}<span class="hp-photo-shade"></span><span class="hp-gallery-top">[ ${i+1} ] <b>${arrow}</b></span><span class="hp-gallery-copy"><small>${k}</small><strong>${h}</strong></span></a>`).join('')}</div></section>
 
     <section class="hp-testimonials"><div class="hp-test-copy"><p class="hp-kicker">Patient Stories</p><h2>Trusted by<br><i>GCC clinicians.</i></h2><p>Real experiences from our clinic partners — leaders in their fields who depend on Al Najah for exceptional results.</p><div class="hp-test-controls"><button type="button" data-test-prev aria-label="Previous testimonial">←</button><button type="button" data-test-next aria-label="Next testimonial">→</button><span data-test-count>1 / 4</span><div class="hp-test-dots" data-test-dots>${testimonials.map((_,i)=>`<button type="button" class="hp-test-dot ${i===0?'active':''}" data-test-dot="${i}" aria-label="Go to testimonial ${i+1}"></button>`).join('')}</div></div></div><div class="hp-test-card" data-test-card data-testimonials='${JSON.stringify(testimonials)}'><div class="hp-stars">★★★★★</div><blockquote data-test-quote>“${testimonials[0][0]}”</blockquote><div class="hp-person"><span data-test-initial>${testimonials[0][3]}</span><p><b data-test-name>${testimonials[0][1]}</b><small data-test-place>${testimonials[0][2]}</small></p></div></div></section>
   </div>`}

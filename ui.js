@@ -179,6 +179,40 @@ export function initializeInteractions() {
   });
 
   // ──────────────────────────────────────────
+  //  Partner logo carousel
+  // ──────────────────────────────────────────
+  const partnerTrack = document.querySelector('[data-partner-track]');
+  if (partnerTrack) {
+    const slides = [...partnerTrack.children];
+    const itemCount = slides.length / 2;
+    let partnerIndex = 0;
+    let partnerTimer;
+    const renderPartners = (animate = true) => {
+      partnerTrack.style.transition = animate && !reduceMotion.matches ? 'transform .55s cubic-bezier(.19,1,.22,1)' : 'none';
+      partnerTrack.style.transform = `translateX(-${slides[partnerIndex].offsetLeft}px)`;
+      document.querySelectorAll('[data-partner-dot]').forEach((dot, index) => dot.classList.toggle('active', index === partnerIndex % itemCount));
+    };
+    const nextPartner = () => { partnerIndex += 1; renderPartners(); };
+    const prevPartner = () => {
+      if (partnerIndex === 0) { partnerIndex = itemCount; renderPartners(false); partnerTrack.offsetHeight; }
+      partnerIndex -= 1; renderPartners();
+    };
+    partnerTrack.addEventListener('transitionend', () => { if (partnerIndex >= itemCount) { partnerIndex = 0; renderPartners(false); } });
+    const resetPartners = () => { clearInterval(partnerTimer); partnerTimer = setInterval(nextPartner, 4200); };
+    document.querySelector('[data-partner-prev]')?.addEventListener('click', () => { prevPartner(); resetPartners(); });
+    document.querySelector('[data-partner-next]')?.addEventListener('click', () => { nextPartner(); resetPartners(); });
+    document.querySelectorAll('[data-partner-dot]').forEach(dot => dot.addEventListener('click', () => { partnerIndex = Number(dot.dataset.partnerDot); renderPartners(); resetPartners(); }));
+    const viewport = partnerTrack.parentElement;
+    viewport.addEventListener('mouseenter', () => clearInterval(partnerTimer));
+    viewport.addEventListener('mouseleave', resetPartners);
+    let startX = 0;
+    viewport.addEventListener('touchstart', event => { startX = event.changedTouches[0].clientX; }, {passive:true});
+    viewport.addEventListener('touchend', event => { const delta = event.changedTouches[0].clientX - startX; if (Math.abs(delta) > 36) delta < 0 ? nextPartner() : prevPartner(); resetPartners(); }, {passive:true});
+    window.addEventListener('resize', () => renderPartners(false));
+    resetPartners();
+  }
+
+  // ──────────────────────────────────────────
   //  Testimonial carousel + auto-play
   // ──────────────────────────────────────────
   const testimonialCard = document.querySelector('[data-test-card]');
@@ -248,6 +282,7 @@ export function initializeInteractions() {
   //  Case card lightbox
   // ──────────────────────────────────────────
   document.querySelectorAll('.case-card').forEach(card => {
+    if (card.matches('a')) return;
     const button = document.createElement('button');
     button.className = 'case-open';
     button.type = 'button';
@@ -293,7 +328,7 @@ export function initializeInteractions() {
   //  Parallax on hero image
   // ──────────────────────────────────────────
   if (!reduceMotion.matches) {
-    const heroImg = document.querySelector('.hp-hero > img');
+    const heroImg = document.querySelector('.hp-hero > img, .hp-hero > video');
     if (heroImg) {
       let rafId = null;
       window.addEventListener('scroll', () => {
