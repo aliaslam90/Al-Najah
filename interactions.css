@@ -170,9 +170,11 @@ html, body, #app, .shell, main,
 .nav-wrap.nav-hidden { transform: translateY(-100%); }
 .nav-wrap.nav-scrolled { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .nav { gap: 20px; }
-.nav .logo { width: 99px; flex: 0 0 99px; }
+.nav .logo { width: 99px; flex: 0 0 99px; display: inline-flex; align-items: center; }
+.nav .brand-crop,
 .brand-crop { display: block; width: 99px; height: 74px; position: relative; overflow: hidden; }
-.brand-crop img { position: absolute; width: 131.36%; height: 124.45%; left: -15.72%; top: -11.55%; object-fit: fill; }
+.nav .brand-crop img,
+.brand-crop img { position: absolute !important; width: 131.36% !important; height: 124.45% !important; left: -15.72% !important; top: -11.55% !important; object-fit: fill !important; }
 .footer .logo { margin: 0 0 24px; width: 198px; }
 .footer .brand-crop { width: 198px; height: 148px; }
 .icon { display: inline-block; width: 20px; height: 20px; object-fit: contain; flex: 0 0 20px; vertical-align: middle; }
