@@ -44,6 +44,126 @@ html, body, #app, .shell, main,
 }
 
 /* ──────────────────────────────────────────
+   Universal Icon Alignment — Figma-accurate
+   ────────────────────────────────────────── */
+
+/* Base icon class (nav, footer, inline) */
+.icon {
+  display: inline-block;
+  width: 20px; height: 20px;
+  object-fit: contain;
+  flex: 0 0 20px;
+  vertical-align: middle;
+}
+
+/* Circular icon containers (48px circles with centered 20px icons) */
+.hp-icon,
+.tech-icon,
+.ep-icon,
+.ap-card-grid article > span {
+  display: grid;
+  place-items: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  flex: 0 0 48px;
+}
+.hp-icon img,
+.tech-icon img,
+.ep-icon img,
+.ap-card-grid article img {
+  width: 20px; height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Workflow step icons (68px circles with 24px icons) */
+.hp-step-icon,
+.tech-step-icon > span {
+  display: grid;
+  place-items: center;
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  background: white;
+}
+.hp-step-icon img,
+.tech-step-icon img {
+  width: 24px; height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Technology page step icons (80px) */
+.tech-step-icon > span {
+  width: 80px; height: 80px;
+}
+.tech-step-icon img {
+  width: 28px; height: 28px;
+}
+
+/* Technology page showcase copy icons */
+.tech-showcase-copy .tech-icon {
+  margin-bottom: 0;
+}
+
+/* Services page check icons */
+.sp-copy li img {
+  width: 14px; height: 14px;
+  object-fit: contain;
+  display: inline-block;
+  flex: 0 0 14px;
+  vertical-align: middle;
+}
+
+/* Contact page address icons */
+.contact-address-row img {
+  width: 16px; height: 16px;
+  object-fit: contain;
+  display: block;
+  flex: 0 0 16px;
+  margin-top: 2px;
+}
+
+/* Footer social icons */
+.footer .icon {
+  width: 20px; height: 20px;
+  object-fit: contain;
+}
+
+/* Nav chevron and arrow icons */
+.links .icon, .order .icon {
+  width: 14px; height: 14px;
+  flex-basis: 14px;
+  object-fit: contain;
+}
+
+/* Technology stack card icons */
+.tech-card-top .tech-icon {
+  width: 48px; height: 48px;
+}
+
+/* Responsive: Scale down icon containers on small screens */
+@media (max-width: 580px) {
+  .hp-icon,
+  .tech-icon,
+  .ap-card-grid article > span {
+    width: 44px; height: 44px;
+    flex: 0 0 44px;
+  }
+  .hp-step-icon {
+    width: 56px; height: 56px;
+  }
+  .hp-step-icon img {
+    width: 20px; height: 20px;
+  }
+  .tech-step-icon > span {
+    width: 64px; height: 64px;
+  }
+  .tech-step-icon img {
+    width: 22px; height: 22px;
+  }
+}
+
+/* ──────────────────────────────────────────
    Nav — sticky, hide/show, glass
    ────────────────────────────────────────── */
 .nav-wrap { position: sticky; top: 0; z-index: 30; transition: transform .35s cubic-bezier(.19,1,.22,1), background-color .3s ease, box-shadow .3s ease; }

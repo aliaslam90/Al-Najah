@@ -10,8 +10,8 @@
 .tech-showcase-image:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,34,.38),transparent 42%)}
 .tech-showcase-image img{width:100%;height:100%;object-fit:cover;display:block}
 .tech-showcase-copy{padding:0;color:#1f2937}
-.tech-icon{display:grid;place-items:center;width:48px;height:48px;background:#fff;border-radius:50%;flex:0 0 auto}
-.tech-icon img{width:22px;height:22px}
+.tech-icon{display:grid;place-items:center;width:48px;height:48px;background:#fff;border-radius:50%;flex:0 0 48px}
+.tech-icon img{width:22px;height:22px;object-fit:contain}
 .tech-showcase-copy .eyebrow{margin:24px 0 18px}
 .tech-showcase-copy h2{font:400 48px/.945 Fraunces,serif;letter-spacing:-.02em;margin:0 0 24px;max-width:620px}
 .tech-showcase-copy p{color:#4b5563;font-size:18px;line-height:1.51;max-width:620px;margin:0}
@@ -32,7 +32,7 @@
 .tech-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:48px;margin-top:70px}
 .tech-step-icon{position:relative;width:82px}
 .tech-step-icon>span{display:grid;place-items:center;width:80px;height:80px;background:#fff;border-radius:50%}
-.tech-step-icon img{width:28px;height:28px}
+.tech-step-icon img{width:28px;height:28px;object-fit:contain}
 .tech-step-icon b{position:absolute;right:-6px;top:-8px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#fff;font:600 12px Inter,sans-serif}
 .tech-steps h3{font:400 30px/1 Fraunces,serif;margin:28px 0 14px}
 .tech-steps p{color:#4b5563;font-size:15px;line-height:1.55;margin:0}
