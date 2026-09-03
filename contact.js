@@ -21,10 +21,20 @@ export function renderContact() {
         </div>
       </div>
       <div class="contact-map-card">
-        <img src="/assets/contact-page/map.png" alt="Map showing Abu Dhabi and the Gulf region">
+        <iframe
+          class="contact-map-iframe"
+          title="Al Najah Technology Dental Lab Location Map"
+          src="https://maps.google.com/maps?q=Al%20Danah%20Zone%201%20Abu%20Dhabi%20UAE&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          loading="lazy"
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
         <div class="contact-map-note">
           <span>Find Us</span>
           <p>Al Najah Technology Dental Lab<br>Al Danah, Zone 1 – Abu Dhabi, UAE</p>
+          <a href="https://maps.google.com/?q=Al+Danah+Zone+1+Abu+Dhabi+UAE" target="_blank" rel="noopener noreferrer" class="contact-map-link">Get Directions ↗</a>
         </div>
       </div>
     </section>`;

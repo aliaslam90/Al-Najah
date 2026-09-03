@@ -15,7 +15,9 @@ export function initializeInteractions() {
   };
   menu.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
   document.addEventListener('click', event => {
-    if (!event.target.closest('.nav') || event.target.closest('.links a')) setMenu(false);
+    if (!event.target.closest('.nav') || (event.target.closest('.links a') && !event.target.closest('.nav-dropdown-trigger'))) {
+      setMenu(false);
+    }
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') {
@@ -24,6 +26,58 @@ export function initializeInteractions() {
     }
   });
   window.matchMedia('(min-width: 1201px)').addEventListener('change', () => setMenu(false));
+
+  // ──────────────────────────────────────────
+  //  Products & Services dropdown interaction
+  // ──────────────────────────────────────────
+  const navDropdown = document.querySelector('.nav-dropdown');
+  if (navDropdown) {
+    const trigger = navDropdown.querySelector('.nav-dropdown-trigger');
+    const toggleDropdown = force => {
+      const isOpen = force !== undefined ? force : !navDropdown.classList.contains('open');
+      navDropdown.classList.toggle('open', isOpen);
+      if (trigger) trigger.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    if (trigger) {
+      trigger.addEventListener('click', e => {
+        if (window.innerWidth <= 900 || ('ontouchstart' in window)) {
+          e.preventDefault();
+          toggleDropdown();
+        }
+      });
+      trigger.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (!navDropdown.classList.contains('open')) {
+            e.preventDefault();
+            toggleDropdown(true);
+            const first = navDropdown.querySelector('.dropdown-item');
+            if (first) first.focus();
+          }
+        }
+      });
+    }
+
+    document.addEventListener('click', e => {
+      if (!navDropdown.contains(e.target)) {
+        toggleDropdown(false);
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navDropdown.classList.contains('open')) {
+        toggleDropdown(false);
+        if (trigger) trigger.focus();
+      }
+    });
+
+    navDropdown.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', () => {
+        toggleDropdown(false);
+        setMenu(false);
+      });
+    });
+  }
 
   // ──────────────────────────────────────────
   //  Nav hide-on-scroll-down / show-on-scroll-up
@@ -188,23 +242,7 @@ export function initializeInteractions() {
     }, {passive:true});
   }
 
-  // ──────────────────────────────────────────
-  //  Interactive Digital Workflow step highlight
-  // ──────────────────────────────────────────
-  const workflowSteps = document.querySelectorAll('.hp-workflow-grid article');
-  if (workflowSteps.length) {
-    workflowSteps.forEach((step, idx) => {
-      step.addEventListener('mouseenter', () => {
-        workflowSteps.forEach((s, i) => s.classList.toggle('step-active', i === idx));
-      });
-    });
-    const workflowGrid = document.querySelector('.hp-workflow-grid');
-    if (workflowGrid) {
-      workflowGrid.addEventListener('mouseleave', () => {
-        workflowSteps.forEach(s => s.classList.remove('step-active'));
-      });
-    }
-  }
+
 
   // ──────────────────────────────────────────
   //  Case card lightbox
