@@ -170,13 +170,9 @@ html, body, #app, .shell, main,
 .nav-wrap.nav-hidden { transform: translateY(-100%); }
 .nav-wrap.nav-scrolled { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .nav { gap: 20px; }
-.nav .logo { width: 99px; flex: 0 0 99px; display: inline-flex; align-items: center; }
-.nav .brand-crop,
-.brand-crop { display: block; width: 99px; height: 74px; position: relative; overflow: hidden; }
-.nav .brand-crop img,
-.brand-crop img { position: absolute !important; width: 131.36% !important; height: 124.45% !important; left: -15.72% !important; top: -11.55% !important; object-fit: fill !important; }
-.footer .logo { margin: 0 0 24px; width: 198px; }
-.footer .brand-crop { width: 198px; height: 148px; }
+.nav .logo { width: 178px; flex: 0 0 178px; display: inline-flex; align-items: center; }
+.brand-logo { display:block; width:100%; height:auto; object-fit:contain; }
+.footer .logo { display:block; margin:0 0 24px; width:220px; }
 .icon { display: inline-block; width: 20px; height: 20px; object-fit: contain; flex: 0 0 20px; vertical-align: middle; }
 .order .icon, .links .icon { width: 14px; height: 14px; flex-basis: 14px; }
 .links a { display: inline-flex; gap: 6px; align-items: center; justify-content: center; position: relative; }
@@ -636,7 +632,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 @media(max-width:1200px) {
   .nav { position:relative; height:80px; }
-  .nav .brand-crop { width:86px; height:64px; }
+  .nav .logo { width:156px; flex-basis:156px; }
   .links { display:none; }
   .menu { display:block; margin-left:auto; border:1px solid #ffffff55; color:var(--white); background:none; border-radius:30px; padding:10px 18px; width:auto; height:44px; font:500 14px Inter,sans-serif; cursor:pointer; }
   .menu:after { content:none; }
@@ -653,8 +649,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 @media(max-width:900px) {
   .nav { height:68px; }
-  .nav .brand-crop { width:70px; height:52px; }
-  .nav .logo { width:70px; flex-basis:70px; }
+  .nav .logo { width:138px; flex-basis:138px; }
   .menu { margin-left:auto; }
   .order + .menu { margin-left:auto; }
   .contact-grid { grid-template-columns:minmax(0,1fr); }

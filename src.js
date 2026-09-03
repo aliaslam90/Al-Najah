@@ -20,7 +20,7 @@ import { renderCaseStudy } from './case-study.js';
 import { renderFaq } from './faq.js';
 import { renderContact } from './contact.js';
 const icon=(name,extra='')=>`<img class="icon ${extra}" src="/assets/icons/${name}.svg" alt="" aria-hidden="true" width="20" height="20">`;
-const brand=()=>'<span class="brand-crop"><img src="/assets/icons/logo.png" alt="Al Najah Technology Dental Lab" width="99" height="74"></span>';
+const brand=()=>'<img class="brand-logo" src="/assets/icons/logo.png" alt="Al Najah Technology Dental Lab" width="273" height="80">';
 const page=(location.pathname.split('/').pop()||'index.html').replace('.html','')||'index';
 const pages=[['index','Home'],['about','About Us'],['services','Products & Services'],['technology','Technology'],['education','Education'],['cases','Case Studies'],['faq','FAQ'],['contact','Contact Us']];
 const serviceItems=[
