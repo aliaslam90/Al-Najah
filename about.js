@@ -1,7 +1,7 @@
 const cards=[
   ['precision.svg','Precision First','Every restoration measured, modeled, and verified, never approximated.'],
   ['science.svg','Scientific Rigor','Materials, workflows, & outcomes informed by current literature & clinical evidence.'],
-  ['partnership.svg','Clinical Partnership','Direct collaboration with clinicians, case planning, not order taking.'],
+  ['partnership.svg','Clinical Partnership','Direct collaboration with clinicians, case planning.'],
   ['craft.svg','Master Craftsmanship','Senior technicians with 15+ years on every aesthetic case.']
 ];
 

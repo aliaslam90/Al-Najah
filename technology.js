@@ -30,12 +30,12 @@ const workflowRows = [
 ];
 
 const stack = [
-  ['scan.svg','Scanning','Lab & Intraoral Scanners','3Shape E4 and Medit i700 systems. Sub-micron accuracy with full impression and model digitization.',['3Shape E4','Medit i700 chairside link','Open STL import']],
-  ['manufacturing.svg','Design','Softwares','3Shape Dental System. Multi-designer collaboration with version control on every case.',['Smile Composer']],
-  ['mill.svg','Milling','CAM & Milling','Roland DWX-52DCi and VHF K5+ six-axis mills. Wet and dry milling across zirconia, titanium, and PMMA.',['Roland DWX-52DCi','VHF K5+ 5-axis','imes-icore 250i']],
-  ['printing.svg','Printing','3D Printing','Formlabs Form 4B and Asiga MAX UV systems. Surgical guides, models, and try-ins printed in-house overnight.',['Formlabs Form 4B','Asiga MAX UV','Ackuretta SOL']],
-  ['materials.svg','Materials','Premium Material Stock','Only original-source materials. Full traceability and shade verification on every block, disc, and ingot.',['Ivoclar e.max','KATANA Zirconia','3M Lava Plus','Vita YZ']],
-  ['quality.svg','Quality','QC & Calibration','Three documented quality checkpoints per case. Weekly calibration of all scanners and mills.',['ATOS metrology scan','Shade verification under D65','Marginal fit check']]
+  ['scan.svg','Scanning','Lab & Intraoral Scanners','Sub-micron accuracy with full impression and model digitization.'],
+  ['manufacturing.svg','Design','Softwares','Multi-designer collaboration with version control on every case.'],
+  ['mill.svg','Milling','CAM & Milling','Wet and dry milling across zirconia, titanium, and PMMA.'],
+  ['printing.svg','Printing','3D Printing','Surgical guides, models, try-ins, and aligners.'],
+  ['materials.svg','Materials','Premium Material Stock','Only original-source materials. Full traceability and shade verification on every block, disc, and ingot.'],
+  ['quality.svg','Quality','QC & Calibration','Three documented quality checkpoints per case. Weekly calibration of all scanners and mills.']
 ];
 
 const steps = [
@@ -84,7 +84,6 @@ export const renderTechnology = () => `
       ${stack.map(card => `<article class="tech-stack-card">
         <div class="tech-card-top"><span class="tech-icon">${icon(card[0])}</span><span class="eyebrow">${card[1]}</span></div>
         <h3>${card[2]}</h3><p>${card[3]}</p>
-        <ul>${card[4].map(item => `<li>· ${item}</li>`).join('')}</ul>
       </article>`).join('')}
     </div>
   </section>
