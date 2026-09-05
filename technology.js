@@ -47,7 +47,7 @@ const steps = [
 ];
 
 const guidance = [
-  ['scan.svg','Scanning best practice','Keep the field dry, capture margins last, and avoid scan jumps. We accept TRIOS, Medit, iTero, Primescan, and Carestream exports.'],
+  ['scan.svg','Scanning best practice','Keep the field dry, capture margins last, and avoid scan jumps. We accept scans from all scanners.'],
   ['file.svg','File formats we accept','Open STL and PLY from any scanner, plus a completed Rx. No proprietary lock-in—send what your system exports.'],
   ['shade.svg','Communicating shade','Send shade photos under D65 daylight with a tab in frame. Free try-in available for high-stakes aesthetic cases.'],
   ['support.svg','Direct technician support','Talk to the technician handling your case—not a call centre. Reach us by phone, email, or the portal chat.']
