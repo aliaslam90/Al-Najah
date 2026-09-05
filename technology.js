@@ -40,7 +40,7 @@ const stack = [
 
 const steps = [
   ['step-scan.svg','Scan','Upload an intraoral scan or send an impression. Open STL from any major scanner.'],
-  ['step-design.svg','Design','A senior designer drafts the restoration in Exocad. You receive a 3D preview.'],
+  ['step-design.svg','Design','A senior designer drafts the restoration in Software. You receive a 3D preview.'],
   ['step-approval.svg','Approval','Review the design and sign off or request adjustments before we manufacture.'],
   ['step-manufacturing.svg','Manufacturing','Six-axis milling, 3D printing, layering, and three documented QC checkpoints.'],
   ['step-delivery.svg','Delivery','Sterile-packed delivery to your clinic, with follow-up after seating.']

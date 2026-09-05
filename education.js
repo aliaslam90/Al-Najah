@@ -1,6 +1,6 @@
 const steps=[
  ['scan.svg','Prepare the scan','Capture a clean full-arch scan with clear margins and a bite registration. Add retracted + natural smile photos for aesthetic cases.'],
- ['upload.svg','Upload or send','Drop open STL files into our partner portal, or arrange impression pickup on our daily GCC courier route.'],
+ ['upload.svg','Upload or send','Drop open STL files into our partner portal, or arrange impression pickup on our daily Middle East courier route.'],
  ['review.svg','Review the design','Receive a 3D Exceed preview within 24 hours. Approve or request adjustments before manufacturing begins.'],
  ['receive.svg','Receive the case','Sterile-packed delivery with a signed QC card. We follow up after seating to confirm fit and function.']
 ];

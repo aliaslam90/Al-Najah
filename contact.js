@@ -3,8 +3,8 @@ const contactIcon = name => `<img src="/assets/contact-page/${name}.svg" alt="" 
 export function renderContact() {
   const details = [
     ['pin', 'Al Danah - Zone 1 - Abu Dhabi', ''],
-    ['phone', '052 777 0075', 'tel:0527770075'],
-    ['email', 'Abu-Dhabi@alnajah.com', 'mailto:Abu-Dhabi@alnajah.com'],
+    ['phone', '+971527770075', 'tel:+971527770075'],
+    ['email', 'Info@alnajah-tdl.net', 'mailto:Info@alnajah-tdl.net'],
     ['clock', 'Sunday to Friday - 09:00 – 20:00', ''],
   ];
 

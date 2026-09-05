@@ -10,7 +10,7 @@ export function renderAbout(){return `
     <section class="ap-hero">
       <p class="ap-kicker">About Al Najah</p>
       <h1>A quarter century <i>of dental craft.</i></h1>
-      <p>From a small lab in Abu Dhabi to the GCC's most trusted prosthetic partner, built one restoration at a time.</p>
+      <p>From a small lab in Abu Dhabi to the Middle East's most trusted prosthetic partner, built one restoration at a time.</p>
     </section>
     <section class="ap-story">
       <div class="ap-story-image"><img src="/assets/about-page/lab-interior.png" alt="Al Najah dental technician hand-finishing a restoration"></div>

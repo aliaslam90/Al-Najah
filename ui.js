@@ -174,7 +174,7 @@ export function initializeInteractions() {
         : 'Please send me information about your newsletter.\nEmail: '+data.get('email');
       const status = form.querySelector('.form-status');
       status.textContent = 'Your email app will open a draft. Review and send it to complete your enquiry.';
-      window.location.href = 'mailto:cases@alnajah.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      window.location.href = 'mailto:alnajahcadcam@alnajah-tdl.net?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
     });
   });
 
