@@ -189,8 +189,8 @@ export function initializeInteractions() {
     const startPartnerMarquee = () => {
       partnerAnimation?.cancel();
       partnerAnimation = partnerTrack.animate(
-        [{transform:'translateX(0)'},{transform:`translateX(-${slides[itemCount].offsetLeft}px)`}],
-        {duration:28000,iterations:Infinity,easing:'linear'}
+        [{transform:'translateX(0)'},{transform:`translateX(-${slides[itemCount].offsetLeft - slides[0].offsetLeft}px)`}],
+        {duration:42000,iterations:Infinity,easing:'linear'}
       );
     };
     const viewport = partnerTrack.parentElement;

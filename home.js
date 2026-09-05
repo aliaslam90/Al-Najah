@@ -51,7 +51,7 @@ const testimonials=[
   ['Their digital workflow gives our team confidence. Design approvals are fast, predictable, and genuinely collaborative.','Dr. Omar','Pearl Dental Centre · Doha, Qatar','O'],
   ['Al Najah has become a trusted extension of our clinic — precise work, thoughtful support, and remarkable consistency.','Dr. Lina','The Dental Studio · Manama, Bahrain','L']
 ];
-const partnerLogos=[['424-2919-img-datron-logo1.png','Datron'],['424-2919-img-dynamic-abutment-logo1.png','Dynamic Abutment Solutions'],['424-2919-img-ivoclar-logo1.png','Ivoclar'],['424-2919-img-vita-dental-lab-logo1.png','Vita']];
+const partnerLogos=[['partner-datron.png','Datron'],['partner-dynamic.png','Dynamic Abutment Solutions'],['partner-ivoclar.png','Ivoclar'],['partner-vita.png','Vita'],['partner-zirkonzahn.png','Zirkonzahn'],['partner-zircon.png','Zircon Medical Equipment']];
 
 export function renderHomepage(){return `
   <div class="home-page">
