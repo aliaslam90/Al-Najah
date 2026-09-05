@@ -23,22 +23,7 @@ const icon=(name,extra='')=>`<img class="icon ${extra}" src="/assets/icons/${nam
 const brand=()=>'<img class="brand-logo" src="/assets/icons/logo.png" alt="Al Najah Technology Dental Lab" width="273" height="80">';
 const page=(location.pathname.split('/').pop()||'index.html').replace('.html','')||'index';
 const pages=[['index','Home'],['about','About Us'],['services','Products & Services'],['technology','Technology'],['education','Education'],['cases','Case Studies'],['faq','FAQ'],['contact','Contact Us']];
-const serviceItems=[
-  ['Fixed Prosthetics','/services.html#fixed'],
-  ['Removable Prosthetics','/services.html#removable'],
-  ['Implant Solutions','/services.html#implants'],
-  ['Aesthetic & Cosmetic','/services.html#aesthetic'],
-  ['Orthodontic Appliances','/services.html#orthodontic']
-];
 const navItem=([p,n])=>{
-  if(p==='services'){
-    return `<div class="nav-dropdown ${page==='services'?'active':''}">
-      <a class="nav-dropdown-trigger ${page==='services'?'active':''}" ${page==='services'?'aria-current="page"':''} href="/services.html" aria-haspopup="true" aria-expanded="false"><span>${n}</span> ${icon('chevron','dropdown-chevron')}</a>
-      <div class="nav-dropdown-menu" role="menu" aria-label="Products & Services menu">
-        ${serviceItems.map(([title,href])=>`<a href="${href}" class="dropdown-item" role="menuitem">${title}</a>`).join('')}
-      </div>
-    </div>`;
-  }
   return `<a class="${page===p?'active':''}" ${page===p?'aria-current="page"':''} href="/${p==='index'?'':p+'.html'}">${n}</a>`;
 };
 const nav=()=>`<a class="skip-link" href="#main">Skip to content</a><div class="nav-wrap"><nav class="nav" aria-label="Main navigation"><a class="logo" href="/" aria-label="Al Najah home">${brand()}</a><div class="links" id="site-links">${pages.map(navItem).join('')}</div><a class="order" href="${page==='about'?'contact.html#start':'#start'}">Order Now ${icon('arrow')}</a><button class="menu" type="button" aria-label="Open navigation" aria-controls="site-links" aria-expanded="false">Menu</button></nav></div>`;
