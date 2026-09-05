@@ -2,3 +2,6 @@
 @media(max-width:1100px){.sp-hero h1{font-size:56px}.sp-row,.sp-row.reverse{grid-template-columns:minmax(360px,44%) 1fr;padding:56px 40px;gap:42px}.sp-row.reverse .sp-image{grid-column:2}.sp-image{width:100%;height:600px}.sp-copy h2{font-size:42px}.sp-copy ul{grid-template-columns:1fr}.page-services .case-panel{margin:0 20px}}
 @media(max-width:800px){.sp-kicker{font-size:12px!important}.sp-hero{min-height:330px;padding:56px 20px}.sp-hero h1{font-size:46px;white-space:normal}.sp-hero>p:last-child{font-size:16px;line-height:1.5}.sp-hero br{display:none}.sp-row,.sp-row.reverse{min-height:0;padding:32px 20px 64px;grid-template-columns:1fr;gap:36px}.sp-row.reverse .sp-image,.sp-row.reverse .sp-copy{grid-column:1}.sp-row.reverse .sp-image{grid-row:1}.sp-row.reverse .sp-copy{grid-row:2}.sp-image{height:min(125vw,600px)}.sp-copy h2{font-size:40px}.sp-description{font-size:16px;line-height:1.55}.sp-copy ul{grid-template-columns:1fr;gap:11px}.sp-materials span{font-size:13px}.page-services .case-panel{margin:0 12px;padding:48px 24px}}
 @media(max-width:420px){.sp-hero h1{font-size:40px}.sp-copy h2{font-size:36px}.sp-image{height:470px}}
+
+/* Preserve the supplied landscape photographs, including both orthodontic appliances. */
+.services-page .sp-image{height:auto;aspect-ratio:3/2}
