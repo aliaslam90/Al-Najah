@@ -13,9 +13,9 @@ const technology=[
   ['424-2494-img-svg5.svg','3D Printing','In-house printing of models, surgical guides, and try-ins often overnight.']
 ];
 const featuredCases=[
-  ['424-2585-img-anterior-lithium-disilicate-veneers.png','Aesthetic · 8 units','Anterior Lithium Disilicate Veneers','anterior-veneers'],
-  ['424-2585-img-article.png','Implant · 12 units','Single & Full Arch','full-arch-zirconia'],
-  ['424-2585-img-article1.png','Restorative · 4 units','Interior & Posterior Crown & Bridge','posterior-crowns'],
+  ['424-2585-img-anterior-lithium-disilicate-veneers.png','Aesthetic','Anterior Lithium Disilicate Veneers','anterior-veneers'],
+  ['424-2585-img-article.png','Implant','Single Full-Arch Zirconia, Screw-Retained - Cemented','full-arch-zirconia'],
+  ['424-2585-img-article1.png','Restorative','Anterior and Posterior Crown and Bridge','posterior-crowns'],
   ['424-2585-img-article2.png','Removable','Full dentures and partial, orthodontic appliances','digital-denture']
 ];
 const services=[
@@ -27,7 +27,7 @@ const services=[
 ];
 const workflow=[
   ['424-2716-img-svg.svg','Scan','Upload an intraoral scan or send an impression. Open STL from any major scanner.'],
-  ['424-2716-img-svg1.svg','Design','A senior designer drafts the restoration in Software. You receive a 3D preview.'],
+  ['424-2716-img-svg1.svg','Design','A senior designer drafts the restoration in software.'],
   ['424-2716-img-svg2.svg','Approval','Review the design and sign off or request adjustments before we manufacture.'],
   ['424-2716-img-svg3.svg','Manufacturing','Six-axis milling, 3D printing, layering, and three documented QC checkpoints.'],
   ['424-2716-img-svg4.svg','Delivery','Sterile-packed delivery to your clinic, with follow-up after seating.']
@@ -36,8 +36,14 @@ const capabilities=['Advanced Digital CAD/CAM Workflow','Expert Implant and Full
 const benefits=[
   ['424-2862-img-svg.svg','Quality Control','Three documented checkpoints per case — design, post-mill, and pre-dispatch — every restoration signed off.'],
   ['424-2862-img-svg1.svg','Innovation','Continuous investment in scanning, milling, and printing keeps us at the front of digital dentistry.'],
-  ['424-2862-img-svg2.svg','Clinician Support','Discussions with Technicaion about your case Directaly'],
+  ['424-2862-img-svg2.svg','Clinician Support','Discussion with the technician on your case directly. Real case planning.'],
   ['424-2862-img-svg3.svg','Fast Turnaround','Average on single units, with rush available across the Middle East.']
+];
+const gallery=[
+ ['424-2969-img-full-arch-zirconia-restoration.png','Implant Solutions','full-arch-zirconia'],
+ ['424-2969-img-implant-supported-bridge.png','Fixed and Removable Prosthetic','implant-bridge'],
+ ['424-2969-img-veneer-smile-design.png','Aesthetic & Cosmetic','smile-design'],
+ ['424-2969-img-layered-ceramic-crowns.png','Digital Dentistry','layered-crowns']
 ];
 const testimonials=[
   ['The precision of their zirconia restorations is unmatched. We rarely need chairside adjustments, which saves us significant time and keeps our patients delighted.','Dr. Ahmed','Dubai Premier Dental · Dubai, UAE','A'],
@@ -72,7 +78,7 @@ export function renderHomepage(){return `
 
     <section class="hp-partners hp-band" aria-label="Technology partners"><p class="hp-kicker">Trusted Across the Gulf</p><h2>Partners</h2><div class="hp-logo-viewport"><div class="hp-logo-grid" data-partner-track>${[...partnerLogos,...partnerLogos].map(([im,a],i)=>`<div class="hp-logo-slide" ${i>=partnerLogos.length?'aria-hidden="true"':''}>${fig(im,a)}</div>`).join('')}</div></div></section>
 
-    <section class="hp-gallery"><div class="hp-section-head"><div><p class="hp-kicker">Featured Work</p><h2>FIXED &amp; Removable<br>PROSTHETICS</h2></div><a class="hp-outline" href="cases.html">View Full Gallery <span>${arrow}</span></a></div></section>
+    <section class="hp-gallery"><div class="hp-section-head"><div><p class="hp-kicker">Featured Work</p><h2>Precision. Artistry.<br><i>Quiet detail.</i></h2></div><a class="hp-outline" href="cases.html">View Full Gallery <span>${arrow}</span></a></div><div class="hp-gallery-grid">${gallery.map(([im,title,slug],i)=>`<a href="${caseHref(slug)}">${fig(im,title)}<span class="hp-photo-shade"></span><span class="hp-gallery-top">[ ${i+1} ] <b>${arrow}</b></span><span class="hp-gallery-copy"><strong>${title}</strong></span></a>`).join('')}</div></section>
 
     <section class="hp-testimonials"><div class="hp-test-copy"><p class="hp-kicker">Patient Stories</p><h2>Trusted by<br><i>Middle East clinicians.</i></h2><p>Real experiences from our clinic partners — leaders in their fields who depend on Al Najah for exceptional results.</p><div class="hp-test-controls"><button type="button" data-test-prev aria-label="Previous testimonial">←</button><button type="button" data-test-next aria-label="Next testimonial">→</button><span data-test-count>1 / 4</span><div class="hp-test-dots" data-test-dots>${testimonials.map((_,i)=>`<button type="button" class="hp-test-dot ${i===0?'active':''}" data-test-dot="${i}" aria-label="Go to testimonial ${i+1}"></button>`).join('')}</div></div></div><div class="hp-test-card" data-test-card data-testimonials='${JSON.stringify(testimonials)}'><div class="hp-stars">★★★★★</div><blockquote data-test-quote>“${testimonials[0][0]}”</blockquote><div class="hp-person"><span data-test-initial>${testimonials[0][3]}</span><p><b data-test-name>${testimonials[0][1]}</b><small data-test-place>${testimonials[0][2]}</small></p></div></div></section>
   </div>`}

@@ -4,6 +4,7 @@ export function renderContact() {
   const details = [
     ['pin', 'Al Danah - Zone 1 - Abu Dhabi', ''],
     ['phone', '+971527770075', 'tel:+971527770075'],
+    ['phone', 'Landline: 252 777075', 'tel:252777075'],
     ['email', 'Info@alnajah-tdl.net', 'mailto:Info@alnajah-tdl.net'],
     ['clock', 'Sunday to Friday - 09:00 – 20:00', ''],
   ];
