@@ -18,7 +18,8 @@ const workflowRows = [
     icon: '/assets/technology-page/manufacturing.svg',
     eyebrow: 'Manufacturing',
     title: 'Manufacturing',
-    copy: 'Roland DWX-52DCi and VHF K5+ six-axis mills handle zirconia, titanium, and PMMA, wet and dry, with weekly calibration.'
+    copy: 'Our mills handle zirconia, titanium, and PMMA, wet and dry, with weekly calibration.',
+    machines: ['Roland DWX-52DCi', 'VHF K5+']
   },
   {
     image: '/assets/technology-page/post-processing.png',
@@ -71,6 +72,7 @@ export const renderTechnology = () => `
           <div class="eyebrow">${row.eyebrow}</div>
           <h2>${row.title}</h2>
           <p>${row.copy}</p>
+          ${row.machines ? `<ul class="tech-machine-list" aria-label="Manufacturing machines">${row.machines.map(name => `<li>${name}</li>`).join('')}</ul>` : ''}
         </div>
       </article>`).join('')}
   </section>

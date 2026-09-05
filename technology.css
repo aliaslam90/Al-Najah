@@ -15,6 +15,7 @@
 .tech-showcase-copy .eyebrow{margin:24px 0 18px}
 .tech-showcase-copy h2{font:400 48px/.945 Fraunces,serif;letter-spacing:-.02em;margin:0 0 24px;max-width:620px}
 .tech-showcase-copy p{color:#4b5563;font-size:18px;line-height:1.51;max-width:620px;margin:0}
+.tech-machine-list{display:flex;flex-wrap:wrap;gap:12px 32px;margin:20px 0 0;padding-left:20px;color:#4b5563;font-size:16px;line-height:1.5}
 .tech-surface{background:#d8dad9;color:#1f2937;padding:80px 32px}
 .tech-section-heading h2,.tech-process h2{font:400 56px/1.05 Fraunces,serif;letter-spacing:-.02em;margin:28px 0 56px}
 .tech-section-heading h2 i,.tech-process h2 i{font-weight:400}
