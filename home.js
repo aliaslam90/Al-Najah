@@ -1,4 +1,4 @@
-import heroVideoUrl from './hero-video/video.mp4?url';
+import heroVideoUrl from './hero-video/hero-web.mp4?url';
 
 const A='/assets/home/';
 const fig=(name,alt='')=>`<img src="${A}${name}" alt="${alt}">`;
