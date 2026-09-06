@@ -2,7 +2,7 @@ import heroVideoUrl from './hero-video/hero-web.mp4?url';
 
 const A='/assets/home/';
 const fig=(name,alt='')=>`<img src="${A}${name}" alt="${alt}">`;
-const arrow='↗';
+const arrow='<svg class="hp-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 19L19 5M5 5H19V19" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"/></svg>';
 const caseHref=slug=>`case-study.html?case=${slug}`;
 
 const technology=[
