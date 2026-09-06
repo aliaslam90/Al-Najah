@@ -57,7 +57,7 @@
  .tech-showcase-copy{padding:28px 8px 0}.tech-showcase-copy h2{font-size:36px}
  .tech-surface{padding:56px 16px}.tech-section-heading h2,.tech-process h2{font-size:42px;margin-bottom:36px}
  .tech-stack-grid,.tech-qc-grid{grid-template-columns:1fr 1fr}
- .tech-stack-card{min-height:320px}
+ .tech-stack-card{min-height:0}
  .tech-process-intro{display:block}.tech-process-intro>p{margin-top:28px}.tech-process-intro br{display:none}
  .tech-steps{grid-template-columns:1fr 1fr;gap:40px 24px}
  .tech-guidance-grid{grid-template-columns:1fr}
@@ -70,3 +70,8 @@
  .tech-guidance-grid article{gap:16px}.tech-guidance-grid h3{font-size:25px}
  .tech-guidance-actions{flex-direction:column;align-items:stretch}.tech-guidance-actions .btn{text-align:center}
 }
+
+/* Size equipment cards to their content instead of reserving empty space. */
+.tech-stack-card{min-height:0}
+.tech-stack-card h3{margin-top:20px;line-height:1.15}
+.tech-card-top .eyebrow{margin:0}
