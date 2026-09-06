@@ -93,7 +93,7 @@ export const renderTechnology = () => `
   <section class="tech-process">
     <div class="tech-process-intro">
       <div><div class="eyebrow">Digital Workflow</div><h2>From scan to seat,<br><i>in five clear steps.</i></h2></div>
-      <p>Every case follows the same documented path—you always know exactly<br>where your restoration is in the lab.</p>
+      <p>Every case follows the same documented path—you always know exactly where your restoration is in the lab.</p>
     </div>
     <div class="tech-steps">
       ${steps.map((step,index) => `<article><div class="tech-step-icon"><span>${icon(step[0])}</span><b>${index+1}</b></div><h3>${step[1]}</h3><p>${step[2]}</p></article>`).join('')}
