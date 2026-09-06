@@ -462,8 +462,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   to   { opacity:1; transform:scale(1); }
 }
 
-/* All hero sections start hidden, animate when page-loaded fires */
-.hp-hero-copy, .hp-hero-copy h1, .hp-hero-copy .hp-pill,
+/* Animate hero content on load; keep the homepage copy container visible. */
+.hp-hero-copy h1, .hp-hero-copy .hp-pill,
 .hp-scroll,
 .ap-hero, .ap-hero h1, .ap-hero > p,
 .sp-hero, .sp-hero h1, .sp-hero > p,
