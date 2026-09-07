@@ -18,8 +18,7 @@ export function renderAbout(){return `
         <p class="ap-kicker">Our Story</p>
         <h2>The lab behind <i>the smiles clinicians trust.</i></h2>
         <div>
-          <p>Al Najah was founded in 2000 by Khaled Al Najah, a master ceramist trained in Munich and Tokyo. The mission was simple: bring uncompromising European prosthetic standards to a region that deserved them.</p>
-          <p>Twenty-five years later, the lab has grown to three facilities, 80+ technicians, and 1,200 partner clinics, but the standard has not changed. Every case is handled by a named designer and a named ceramist. Every box leaves the lab with a signed QC card.</p>
+          <p>Al Najah was established in 2012 and is fully licensed by the Department of Health, Abu Dhabi. Over the past several years, new leadership brought in corporate governance, disciplined quality systems, and a digital-first strategy, while keeping the hands-on craftsmanship the lab was built on. Today, a team of 43 specialists, including dental technicians, CAD/CAM designers, implant specialists, and quality control staff, works from a single laboratory in Abu Dhabi, serving clinics across the UAE through scheduled pickup and delivery, and across the wider GCC through digital case workflows.</p>
           <p>We're proud to be a family business, still independently owned, and still obsessive about the things that matter: margins, contacts, occlusion, and shade.</p>
         </div>
       </div>
