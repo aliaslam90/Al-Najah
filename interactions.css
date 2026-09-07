@@ -335,9 +335,9 @@ html, body, #app, .shell, main,
 .social-icon .icon { width:16px; height:16px; flex-basis:16px; }
 .back-top { display: inline-flex !important; align-items:center; gap:8px; }
 .back-top .icon { width:32px; height:32px; border:1px solid #ffffff4d; border-radius:50%; padding:8px; }
-.whatsapp-float { position:fixed; right:max(24px,env(safe-area-inset-right)); bottom:max(24px,env(safe-area-inset-bottom)); z-index:28; width:60px; height:60px; display:grid; place-items:center; border-radius:50%; background:#25d366; color:#fff; box-shadow:0 10px 28px rgba(0,0,0,.24); transition:transform .25s cubic-bezier(.19,1,.22,1),box-shadow .25s ease,background-color .2s ease; }
-.whatsapp-float img { width:32px; height:32px; object-fit:contain; }
-.whatsapp-float:hover { transform:translateY(-4px) scale(1.04); background:#20bd5a; box-shadow:0 14px 34px rgba(0,0,0,.28); }
+.whatsapp-float { position:fixed; right:max(24px,env(safe-area-inset-right)); bottom:max(24px,env(safe-area-inset-bottom)); z-index:28; width:60px; height:60px; display:grid; place-items:center; border:1px solid rgba(0,0,0,.06); border-radius:50%; background:#fff; color:#fff; box-shadow:0 10px 28px rgba(0,0,0,.24); transition:transform .25s cubic-bezier(.19,1,.22,1),box-shadow .25s ease,background-color .2s ease; }
+.whatsapp-float img { width:48px; height:48px; object-fit:contain; }
+.whatsapp-float:hover { transform:translateY(-4px) scale(1.04); background:#f7f7f7; box-shadow:0 14px 34px rgba(0,0,0,.28); }
 .whatsapp-float:focus-visible { outline:3px solid #fff; outline-offset:3px; }
 .contact-actions { display:grid; gap:16px; margin-top:30px; }
 .contact-actions a { display:flex; align-items:center; gap:16px; }
@@ -673,7 +673,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 @media(max-width:560px) {
   .whatsapp-float { right:max(16px,env(safe-area-inset-right)); bottom:max(16px,env(safe-area-inset-bottom)); width:54px; height:54px; }
-  .whatsapp-float img { width:29px; height:29px; }
+  .whatsapp-float img { width:44px; height:44px; }
   .cards,.five,.edu-steps,.gallery,.guide .cards,.footer-grid { grid-template-columns:minmax(0,1fr); }
   .footer-grid > :last-child { grid-column:auto; width:100%; max-width:none; }
   .case-panel { padding:36px 20px; gap:30px; }
