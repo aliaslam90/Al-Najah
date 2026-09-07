@@ -1,4 +1,4 @@
-const contactIcon = name => `<img src="${name === 'whatsapp' ? '/assets/icons/whatsapp.svg' : `/assets/contact-page/${name}.svg`}" alt="" aria-hidden="true" width="16" height="16">`;
+const contactIcon = name => `<img src="${name === 'whatsapp' ? '/assets/icons/whatsapp.png' : `/assets/contact-page/${name}.svg`}" alt="" aria-hidden="true" width="16" height="16">`;
 
 export function renderContact() {
   const details = [
