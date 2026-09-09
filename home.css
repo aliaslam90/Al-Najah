@@ -28,6 +28,18 @@
 .hp-logo-viewport .hp-logo-grid{position:relative}
 .hp-logo-viewport .hp-logo-slide img{width:220px;height:80px;max-width:85%;max-height:80px;object-fit:contain;filter:none;opacity:1}
 
+/* Accommodate the expanded purpose, vision, and mission copy. */
+.hp-hero-copy{max-width:calc(100% - 160px)}
+.hp-hero h1{max-width:1120px;font-size:clamp(58px,5vw,72px)}
+.hp-foundation{align-items:center}
+.hp-foundation-cards article{min-height:0}
+.hp-foundation-cards p+p{margin-top:14px}
+@media(max-width:800px){
+  .hp-hero-copy{max-width:none}
+  .hp-hero h1{font-size:46px}
+}
+@media(max-width:420px){.hp-hero h1{font-size:34px}}
+
 /* Homepage reference: quiet statistics, editorial captions, and section rhythm. */
 .hp-stats{background:transparent;box-shadow:none;border-radius:0}
 .hp-stats>div{border:0}
