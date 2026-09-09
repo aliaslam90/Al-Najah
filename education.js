@@ -6,7 +6,7 @@ const steps=[
 ];
 const include=[
  ['Required with every case',['Full upper & lower scan','Bite registration','Completed Rx form','Shade photos (aesthetic cases)']],
- ['Supported scanners',['3Shape TRIOS','Medit i700 / i900','iTero Element','CEREC Primescan','Carestream']],
+ ['Supported scanners',['We support all scanners.']],
  ['Turnaround at a glance',['Single-unit crown  3 days','Full-arch / aesthetic  5–7 days','Rush service  24–48 hours','Same-day zones  Dubai & Riyadh']]
 ];
 const guidance=[

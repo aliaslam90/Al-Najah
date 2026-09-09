@@ -4,14 +4,14 @@ const workflowRows = [
     icon: '/assets/technology-page/scan.svg',
     eyebrow: 'Intraoral Scanning',
     title: 'Digital impressions, sub-micron accurate',
-    copy: 'We accept open STL/PLY from any major scanner and run 3Shape E4 and Medit lab scanners in-house, eliminating impression distortion and remakes.'
+    copy: 'We accept open STL/PLY files from any major scanner, eliminating impression distortion and remakes.'
   },
   {
     image: '/assets/technology-page/design.png',
     icon: '/assets/technology-page/design.svg',
     eyebrow: 'Digital Design',
     title: 'Cad/Cam',
-    copy: 'Every case is drafted with Smile Composer. You receive a 3D preview to approve before a single block is milled.'
+    copy: 'Every case is drafted with Smile Composer. You receive a 3D preview to approve before milling.'
   },
   {
     image: '/assets/technology-page/manufacturing.png',
@@ -19,7 +19,7 @@ const workflowRows = [
     eyebrow: 'Manufacturing',
     title: 'Manufacturing',
     copy: 'Our mills handle zirconia, titanium, and PMMA, wet and dry, with weekly calibration.',
-    machines: ['Roland DWX-52DCi', 'VHF K5+']
+    machines: ['Sirona MC XL', 'Zirkonzahn M5 Speed', 'Roland DWX', 'Datron D5']
   },
   {
     image: '/assets/technology-page/post-processing.png',
