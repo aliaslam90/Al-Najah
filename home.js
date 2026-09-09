@@ -32,12 +32,12 @@ const workflow=[
   ['424-2716-img-svg3.svg','Manufacturing','Six-axis milling, 3D printing, layering, and three documented QC checkpoints.'],
   ['424-2716-img-svg4.svg','Delivery','Sterile-packed delivery to your clinic, with follow-up after seating.']
 ];
-const capabilities=['Advanced Digital CAD/CAM Workflow','Expert Implant and Full Arch Solutions','Premium Certified Materials','Multi Stage Quality Assurance','Predictable Turnaround Times','Dedicated Technical Support','Personalized Communication','Trusted by Leading Dental Clinics'];
+const capabilities=['Professional Technicians','Expert Implant and Full Arch Solutions','Premium Certified Materials','Multi Stage Quality Assurance','Predictable Turnaround Times','Advanced Cases','Personalized Communication'];
 const benefits=[
-  ['424-2862-img-svg.svg','Quality Control','Three documented checkpoints per case — design, post-mill, and pre-dispatch — every restoration signed off.'],
-  ['424-2862-img-svg1.svg','Innovation','Continuous investment in scanning, milling, and printing keeps us at the front of digital dentistry.'],
-  ['424-2862-img-svg2.svg','Clinician Support','Discussion with the technician on your case directly. Real case planning.'],
-  ['424-2862-img-svg3.svg','Fast Turnaround','Average on single units, with rush available across the Middle East.']
+  ['424-2862-img-svg.svg','Precision','Every restoration is measured, checked, and re-checked before it leaves the lab.'],
+  ['424-2862-img-svg1.svg','Reliability','Consistent turnaround times you can build a patient schedule around.'],
+  ['424-2862-img-svg2.svg','Innovation','Continuous investment in digital scanning, design, and manufacturing technology.'],
+  ['424-2862-img-svg3.svg','Accountability','A named point of contact for every doctor, and full traceability on every case.']
 ];
 const gallery=[
  ['424-2969-img-full-arch-zirconia-restoration.png','Implant Solutions','full-arch-zirconia'],
@@ -51,7 +51,7 @@ const testimonials=[
   ['Their digital workflow gives our team confidence. Design approvals are fast, predictable, and genuinely collaborative.','Dr. Omar','Pearl Dental Centre · Doha, Qatar','O'],
   ['Al Najah has become a trusted extension of our clinic — precise work, thoughtful support, and remarkable consistency.','Dr. Lina','The Dental Studio · Manama, Bahrain','L']
 ];
-const partnerLogos=[['partner-datron.png','Datron'],['partner-dynamic.png','Dynamic Abutment Solutions'],['partner-ivoclar.png','Ivoclar'],['partner-vita.png','Vita'],['partner-zirkonzahn.png','Zirkonzahn'],['partner-zircon.png','Zircon Medical Equipment']];
+const partnerLogos=[['partner-datron.png','Datron'],['partner-dynamic.png','Dynamic Abutment Solutions'],['partner-ivoclar.png','Ivoclar'],['partner-vita.png','Vita'],['partner-zirkonzahn.png','Zirkonzahn'],['partner-zircon.png','Zircon Medical Equipment'],['partner-dentium.png','Dentium']];
 
 export function renderHomepage(){return `
   <div class="home-page">
@@ -76,7 +76,7 @@ export function renderHomepage(){return `
 
     <section class="hp-benefits"><p class="hp-kicker">Why Choose Us</p><h2>Get the best<br><i>from every case.</i></h2><div class="hp-benefit-grid">${benefits.map(([ic,h,p])=>`<article><span class="hp-icon white">${fig(ic)}</span><h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
 
-    <section class="hp-partners hp-band" aria-label="Technology partners"><p class="hp-kicker">Trusted Across the Gulf</p><h2>Partners</h2><div class="hp-logo-viewport"><div class="hp-logo-grid" data-partner-track>${[...partnerLogos,...partnerLogos].map(([im,a],i)=>`<div class="hp-logo-slide" ${i>=partnerLogos.length?'aria-hidden="true"':''}>${fig(im,a)}</div>`).join('')}</div></div></section>
+    <section class="hp-partners hp-band" aria-label="Technology partners"><p class="hp-kicker">Quality You Can Trust</p><h2>Partners</h2><p class="hp-partners-copy">Our lab uses trusted, industry-leading brands to deliver quality and reliability in every result.</p><div class="hp-logo-viewport"><div class="hp-logo-grid" data-partner-track>${[...partnerLogos,...partnerLogos].map(([im,a],i)=>`<div class="hp-logo-slide" ${i>=partnerLogos.length?'aria-hidden="true"':''}>${fig(im,a)}</div>`).join('')}</div></div></section>
 
     <section class="hp-gallery"><div class="hp-section-head"><div><p class="hp-kicker">Featured Work</p><h2>Precision. Artistry.<br><i>Quiet detail.</i></h2></div><a class="hp-outline" href="cases.html">View Full Gallery <span>${arrow}</span></a></div><div class="hp-gallery-grid">${gallery.map(([im,title,slug],i)=>`<a href="${caseHref(slug)}">${fig(im,title)}<span class="hp-photo-shade"></span><span class="hp-gallery-top">[ ${i+1} ] <b>${arrow}</b></span><span class="hp-gallery-copy"><strong>${title}</strong></span></a>`).join('')}</div></section>
 

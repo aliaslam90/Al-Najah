@@ -27,6 +27,13 @@
 /* Equal logo frames preserve each supplied brand's colors and proportions. */
 .hp-logo-viewport .hp-logo-grid{position:relative}
 .hp-logo-viewport .hp-logo-slide img{width:220px;height:80px;max-width:85%;max-height:80px;object-fit:contain;filter:none;opacity:1}
+.hp-partners h2{margin-bottom:16px}
+.hp-partners-copy{max-width:680px;margin:0 0 40px;color:var(--muted);font-size:18px;line-height:1.5}
+.hp-logo-viewport .hp-logo-slide img{width:180px;height:70px;max-width:180px;max-height:70px}
+@media(max-width:800px){
+  .hp-partners-copy{font-size:16px;margin-bottom:28px}
+  .hp-logo-viewport .hp-logo-slide img{width:150px;height:60px;max-width:80%;max-height:60px}
+}
 
 /* Accommodate the expanded purpose, vision, and mission copy. */
 .hp-hero-copy{max-width:calc(100% - 160px)}
