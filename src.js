@@ -22,7 +22,7 @@ import { renderContact } from './contact.js';
 const icon=(name,extra='')=>`<img class="icon ${extra}" src="/assets/icons/${name}.svg" alt="" aria-hidden="true" width="20" height="20">`;
 const brand=()=>'<img class="brand-logo" src="/assets/icons/logo.png" alt="Al Najah Technology Dental Lab" width="273" height="80">';
 const page=(location.pathname.split('/').pop()||'index.html').replace('.html','')||'index';
-const pages=[['index','Home'],['about','About Us'],['services','Products & Services'],['technology','Technology'],['education','Education'],['cases','Case Studies'],['faq','FAQ'],['contact','Contact Us']];
+const pages=[['index','Home'],['about','About Us'],['services','Products & Services'],['technology','Technology'],['education','Education'],['cases','Gallery'],['faq','FAQ'],['contact','Contact Us']];
 const navItem=([p,n])=>{
   return `<a class="${page===p?'active':''}" ${page===p?'aria-current="page"':''} href="/${p==='index'?'':p+'.html'}">${n}</a>`;
 };

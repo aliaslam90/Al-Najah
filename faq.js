@@ -25,7 +25,7 @@ const groups = [
 export const renderFaq = () => `
   <header class="faq-hero">
     <div class="eyebrow">FAQ</div>
-    <h1>Questions, answered by senior lab staff.</h1>
+    <h1>Questions, answered by master technician.</h1>
     <p>The most common things clinicians ask before their first case. If yours is not <br>here, reach out and we will respond within one business day.</p>
   </header>
   <section class="faq-list">
