@@ -23,6 +23,8 @@ html, body, #app, .shell, main,
 .home-page, .about-page, .services-page, .education-page, .footer {
   background: #F3F4F6 !important;
 }
+.nav,.page-index .nav{background:transparent;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none}.nav .logo{filter:invert(1);margin-right:8px}.nav-bar{height:90px;min-width:0;flex:1;display:flex;align-items:center;gap:20px;padding:8px 20px;border-radius:999px;background:rgba(51,51,61,.84);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.hp-workflow-grid::before{content:none!important}
+@media(max-width:900px){.nav,.page-index .nav{height:68px;background:rgba(51,51,61,.84);padding:8px 20px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.nav .logo{filter:none;margin-right:0}.nav-bar{display:contents}}
 
 /* ──────────────────────────────────────────
    Pure white text on all photo cards

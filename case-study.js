@@ -7,7 +7,7 @@ export function renderCaseStudy() {
   const currentIndex = caseStudies.indexOf(current);
   const next = caseStudies[(currentIndex + 1) % caseStudies.length];
   document.title = `${current.title} — Al Najah Dental Lab`;
-  document.querySelector('meta[name="description"]')?.setAttribute('content', `${current.title}: a ${current.categoryLabel.toLowerCase()} dental laboratory case study by Al Najah.`);
+  document.querySelector('meta[name="description"]')?.setAttribute('content', `${current.title}: a ${current.categoryLabel.toLowerCase()} dental laboratory case study by Al Najah Dental Lab.`);
   return `<article class="case-detail">
     <header class="cd-hero">
       <div class="cd-hero-media"><img src="/assets/cases-page/${current.image}" alt="${current.title}"></div>
@@ -16,7 +16,7 @@ export function renderCaseStudy() {
     </header>
     <section class="cd-intro">
       <div><p class="eyebrow">Case Overview</p><h2>Precision built around the patient.</h2></div>
-      <p>This representative case study demonstrates the collaborative planning, material control, and documented quality checks behind every Al Najah restoration. The clinical details are placeholder content ready for your final case notes.</p>
+      <p>This representative case study demonstrates the collaborative planning, material control, and documented quality checks behind every Al Najah Dental Lab restoration. The clinical details are placeholder content ready for your final case notes.</p>
     </section>
     <section class="cd-facts" aria-label="Case facts">
       ${[['Restoration',current.units],['Material',current.material],['Workflow',current.workflow],['Turnaround',current.turnaround],['Shade',current.shade]].map(([label,value])=>`<div><small>${label}</small><strong>${value}</strong></div>`).join('')}

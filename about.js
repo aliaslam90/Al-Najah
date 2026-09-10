@@ -28,7 +28,7 @@ export function renderAbout(){return `
       <p>From a small lab in Abu Dhabi to the Middle East's most trusted prosthetic partner, built one restoration at a time.</p>
     </section>
     <section class="ap-story">
-      <div class="ap-story-image"><img src="/assets/about-page/lab-interior.png" alt="Al Najah dental technician hand-finishing a restoration"></div>
+      <div class="ap-story-image"><img src="/assets/about-page/lab-interior.png" alt="Al Najah Dental Lab dental technician hand-finishing a restoration"></div>
       <div class="ap-story-copy">
         <p class="ap-kicker">Our Story</p>
         <h2>The partner behind <i>every dentist's best work.</i></h2>

@@ -25,7 +25,7 @@ export function renderContact() {
       <div class="contact-map-card">
         <iframe
           class="contact-map-iframe"
-          title="Al Najah Technology Dental Lab Location Map"
+          title="Al Najah Dental Lab Location Map"
           src="https://maps.google.com/maps?q=Al%20Danah%20Zone%201%20Abu%20Dhabi%20UAE&t=&z=15&ie=UTF8&iwloc=&output=embed"
           width="100%"
           height="100%"
@@ -35,7 +35,7 @@ export function renderContact() {
         </iframe>
         <div class="contact-map-note">
           <span>Find Us</span>
-          <p>Al Najah Technology Dental Lab<br>Al Danah, Zone 1 – Abu Dhabi, UAE</p>
+          <p>Al Najah Dental Lab<br>Al Danah, Zone 1 – Abu Dhabi, UAE</p>
           <a href="https://maps.google.com/?q=Al+Danah+Zone+1+Abu+Dhabi+UAE" target="_blank" rel="noopener noreferrer" class="contact-map-link">Get Directions ↗</a>
         </div>
       </div>
