@@ -24,7 +24,7 @@
 @media(max-width:800px){.hp-logo-viewport .hp-logo-grid{grid-template-columns:none;grid-auto-columns:calc((100% - 24px)/2);gap:24px}.hp-partners-head{align-items:center}.hp-partner-controls{margin-bottom:34px}}
 @media(max-width:420px){.hp-logo-viewport .hp-logo-grid{grid-template-columns:none;grid-auto-columns:100%;gap:0}.hp-partner-controls button{width:42px;height:42px}.hp-partners h2{margin-bottom:28px}}
 .page-index .nav{background:transparent;padding:0;backdrop-filter:none;-webkit-backdrop-filter:none}.page-index .nav .logo{filter:invert(1)}
-@media(max-width:900px){.page-index .nav{background:rgba(51,51,61,.84);padding:8px 20px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.page-index .nav .logo{filter:none}}
+@media(max-width:1200px){.page-index .nav{background:rgba(51,51,61,.84);padding:8px 20px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.page-index .nav .logo{filter:none}}
 
 /* Equal logo frames preserve each supplied brand's colors and proportions. */
 .hp-logo-viewport .hp-logo-grid{position:relative}
