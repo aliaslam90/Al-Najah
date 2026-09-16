@@ -1,0 +1,76 @@
+/* Client revisions: shared branding, navigation and contact rhythm. */
+.nav .logo, .page-index .nav .logo {
+  width:100px;
+  flex:0 0 100px;
+  margin-right:0;
+  filter:none;
+}
+.brand-logo { width:100%; height:auto; object-fit:contain; }
+.footer .logo { width:130px; }
+.footer .brand-logo { filter:invert(1); }
+.nav-bar .links { justify-content:center; gap:4px; min-width:0; }
+.nav .links a, .page-index .nav .links a {
+  flex:1 1 0;
+  min-width:0;
+  min-height:48px;
+  padding:8px 10px;
+  text-align:center;
+  white-space:normal;
+  line-height:1.35;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hp-hero-intro {
+  margin:0 0 18px;
+  color:#fff;
+  font-size:clamp(18px,2vw,28px);
+  line-height:1.4;
+  font-weight:500;
+}
+/* Optical sizing accounts for each original logo's shape and internal padding. */
+.hp-logo-viewport .hp-logo-slide { height:120px; }
+.hp-logo-viewport .hp-logo-grid { height:120px; }
+.hp-logo-viewport .hp-logo-slide img {
+  width:var(--partner-width,180px);
+  height:auto;
+  max-width:90%;
+  max-height:none;
+  object-fit:contain;
+}
+.hp-logo-slide img[src*="partner-dynamic"] { --partner-width:130px; }
+.hp-logo-slide img[src*="partner-ivoclar"] { --partner-width:195px; }
+.hp-logo-slide img[src*="partner-vita"] { --partner-width:140px; }
+.hp-logo-slide img[src*="partner-zirkonzahn"] { --partner-width:220px; }
+.hp-logo-slide img[src*="partner-zircon"] { --partner-width:165px; }
+.hp-logo-slide img[src*="partner-dentium"] { --partner-width:220px; }
+.contact-actions, .page-index .case-panel .contact-actions { gap:24px; }
+.contact-actions small, .page-index .case-panel .contact-actions small {
+  margin-bottom:10px;
+  line-height:1.5;
+}
+.contact-actions a > span:last-child { min-width:0; overflow-wrap:anywhere; line-height:1.5; }
+.contact-locations { align-items:stretch; }
+.contact-address-card { height:auto; overflow:visible; }
+.contact-address-list { gap:24px; }
+.contact-address-row { align-items:center; gap:16px; line-height:1.6; }
+.contact-address-row .icon-disc { width:44px; height:44px; flex:0 0 44px; }
+.contact-address-row .icon-disc img { width:20px; height:20px; margin:0; flex:0 0 20px; }
+.contact-detail { min-width:0; overflow-wrap:anywhere; }
+.contact-detail small { display:block; margin-bottom:10px; font-size:12px; line-height:1.5; text-transform:uppercase; letter-spacing:2px; color:var(--muted); }
+.contact-detail a { display:inline-block; }
+.contact-map-card { height:auto; min-height:399px; }
+@media(max-width:1200px) {
+  .nav .logo, .page-index .nav .logo { width:84px; flex-basis:84px; filter:invert(1); }
+  .nav .links.mobile-open a { flex:none; }
+}
+@media(max-width:900px) {
+  .nav .logo, .page-index .nav .logo { width:70px; flex-basis:70px; }
+  .contact-map-card { min-height:420px; }
+}
+@media(max-width:560px) {
+  .hp-hero-intro { margin-bottom:14px; }
+  .contact-address-row { gap:12px; }
+  .contact-detail a { min-height:0; display:inline-block; }
+  .contact-map-card { min-height:380px; }
+}

@@ -6,7 +6,7 @@ export function renderCaseStudy() {
   const current = findCaseStudy(new URLSearchParams(location.search).get('case'));
   const currentIndex = caseStudies.indexOf(current);
   const next = caseStudies[(currentIndex + 1) % caseStudies.length];
-  document.title = `${current.title} — Al Najah Dental Lab`;
+  document.title = `${current.title} | Al Najah Dental Lab`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${current.title}: a ${current.categoryLabel.toLowerCase()} dental laboratory case study by Al Najah Dental Lab.`);
   return `<article class="case-detail">
     <header class="cd-hero">

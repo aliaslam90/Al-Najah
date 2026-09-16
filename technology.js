@@ -49,9 +49,9 @@ const steps = [
 
 const guidance = [
   ['scan.svg','Scanning best practice','Keep the field dry, capture margins last, and avoid scan jumps. We accept scans from all scanners.'],
-  ['file.svg','File formats we accept','Open STL and PLY from any scanner, plus a completed Rx. No proprietary lock-in—send what your system exports.'],
+  ['file.svg','File formats we accept','Open STL and PLY from any scanner, plus a completed Rx. No proprietary lock-in. Send what your system exports.'],
   ['shade.svg','Communicating shade','Send shade photos under D65 daylight with a tab in frame. Free try-in available for high-stakes aesthetic cases.'],
-  ['support.svg','Direct technician support','Talk to the technician handling your case—not a call centre. Reach us by phone, email, or the portal chat.']
+  ['support.svg','Direct technician support','Talk to the technician handling your case, not a call centre. Reach us by phone, email, or the portal chat.']
 ];
 
 const icon = name => `<img src="/assets/technology-page/${name}" alt="" aria-hidden="true">`;
@@ -93,7 +93,7 @@ export const renderTechnology = () => `
   <section class="tech-process">
     <div class="tech-process-intro">
       <div><div class="eyebrow">Digital Workflow</div><h2>From scan to seat,<br><i>in five clear steps.</i></h2></div>
-      <p>Every case follows the same documented path—you always know exactly where your restoration is in the lab.</p>
+      <p>Every case follows the same documented path. You always know exactly where your restoration is in the lab.</p>
     </div>
     <div class="tech-steps">
       ${steps.map((step,index) => `<article><div class="tech-step-icon"><span>${icon(step[0])}</span><b>${index+1}</b></div><h3>${step[1]}</h3><p>${step[2]}</p></article>`).join('')}

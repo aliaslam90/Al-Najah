@@ -6,7 +6,7 @@ const groups = [
     ['Can I send physical impressions if I do not have a scanner?','Yes. Physical impressions can be collected through our courier route or delivered directly to the lab.']
   ]],
   ['Turnaround & Logistics',[
-    ['What is your average turnaround time?','Single-unit cases average three business days; full-arch and aesthetic cases typically take five to seven business days.'],
+    ['What is your average turnaround time?','Individual crown cases average three business days; full-arch and aesthetic cases typically take five to seven business days.'],
     ['Do you offer same-day or next-day service?','Rush service is available for suitable cases, subject to technical review and capacity.'],
     ['How are completed cases delivered?','Cases are sterile-packed and delivered to your clinic with a signed quality-control card.']
   ]],

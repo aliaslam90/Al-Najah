@@ -9,6 +9,7 @@ import './cases.css';
 import './case-study.css';
 import './faq.css';
 import './contact.css';
+import './feedback.css';
 import { initializeInteractions } from './ui.js';
 import { renderHomepage } from './home.js';
 import { renderAbout } from './about.js';
@@ -20,7 +21,7 @@ import { renderCaseStudy } from './case-study.js';
 import { renderFaq } from './faq.js';
 import { renderContact } from './contact.js';
 const icon=(name,extra='')=>`<img class="icon ${extra}" src="/assets/icons/${name}.svg" alt="" aria-hidden="true" width="20" height="20">`;
-const brand=()=>'<img class="brand-logo" src="/assets/icons/logo.png" alt="Al Najah Dental Lab" width="273" height="80">';
+const brand=()=>'<img class="brand-logo" src="/assets/icons/logo-stacked.png" alt="Al Najah Dental Lab" width="219" height="162">';
 const page=(location.pathname.split('/').pop()||'index.html').replace('.html','')||'index';
 const pages=[['index','Home'],['about','About Us'],['services','Products & Services'],['technology','Technology'],['education','Education'],['cases','Gallery'],['faq','FAQ'],['contact','Contact Us']];
 const navItem=([p,n])=>{
@@ -44,7 +45,7 @@ const faq=()=>`${renderFaq()}${casePanel()}`;
 const contact=()=>`${renderContact()}${casePanel()}`;
 const caseStudy=()=>`${renderCaseStudy()}${casePanel()}`;
 const content={index:home,about,services,technology,education,cases,faq,contact,'case-study':caseStudy};
-document.title=`${pages.find(x=>x[0]===page)?.[1]||'Al Najah Dental Lab'} — Al Najah Dental Lab`;
+document.title=`${pages.find(x=>x[0]===page)?.[1]||'Al Najah Dental Lab'} | Al Najah Dental Lab`;
 document.querySelector('#app').innerHTML=`<div class="shell page-${page}" id="top">${nav()}<main id="main">${(content[page]||home)()}</main>${footer()}${whatsapp()}</div>`;
 
 initializeInteractions();
