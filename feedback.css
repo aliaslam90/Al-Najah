@@ -50,7 +50,7 @@
 .hp-logo-slide img[src*="partner-zirkonzahn"] { --partner-width:220px; }
 .hp-logo-slide img[src*="partner-zircon"] { --partner-width:165px; }
 .hp-logo-slide img[src*="partner-dentium"] { --partner-width:220px; }
-.contact-actions, .page-index .case-panel .contact-actions { gap:20px; }
+.contact-actions, .page-index .case-panel .contact-actions { gap:24px; }
 .contact-actions .contact-email-action { margin-top:0; }
 .contact-actions small, .page-index .case-panel .contact-actions small {
   margin-bottom:10px;
