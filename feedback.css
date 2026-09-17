@@ -81,3 +81,30 @@
   .contact-detail a { min-height:0; display:inline-block; }
   .contact-map-card { min-height:380px; }
 }
+
+/* Small screens use full-width cards instead of clipped horizontal carousels. */
+@media(max-width:800px) {
+  .hp-case-grid,
+  .hp-gallery-grid {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:none;
+    height:auto;
+    overflow:visible;
+    scroll-snap-type:none;
+    gap:16px;
+  }
+  .hp-case-grid > .hp-case,
+  .hp-gallery-grid > a {
+    grid-column:auto;
+    min-width:0;
+    width:100%;
+    height:clamp(320px,70vw,480px);
+    scroll-snap-align:none;
+  }
+  .hp-tech-grid { grid-template-columns:minmax(0,1fr); }
+  .tech-guidance-actions .btn { justify-content:center; text-align:center; }
+  .ap-principles h2 { font-size:clamp(27px,6vw,40px); }
+  .ap-principles h2 i { display:block; }
+  .ap-principles h2 br { display:none; }
+}

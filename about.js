@@ -43,7 +43,7 @@ export function renderAbout(){return `
       <article><p class="ap-kicker">Our Mission</p>${mission.map(text=>`<p>${text}</p>`).join('')}</article>
     </section>
     <section class="ap-principles">
-      <div class="ap-principles-head"><p class="ap-kicker">What We Stand For</p><h2>Seven principles <i>that shape<br>every case.</i></h2></div>
+      <div class="ap-principles-head"><p class="ap-kicker">What We Stand For</p><h2>Seven principles <i>that shape<br> every case.</i></h2></div>
       <div class="ap-card-grid">${principles.map(([title,text],i)=>`<article><span>${i+1}</span><h3>${title}</h3><p>${text}</p></article>`).join('')}</div>
     </section>
   </div>`}
