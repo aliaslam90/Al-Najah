@@ -8,14 +8,20 @@
 .brand-logo { width:100%; height:auto; object-fit:contain; }
 .footer .logo { width:130px; }
 .footer .brand-logo { filter:invert(1); }
-.nav-bar .links { justify-content:center; gap:4px; min-width:0; }
+.nav-bar .links { justify-content:center; gap:clamp(2px,.4vw,8px); min-width:0; }
+@media(min-width:1201px) {
+  .nav-bar { position:relative; }
+  .nav-bar .links { position:absolute; left:50%; width:max-content; transform:translateX(-50%); }
+}
+@media(min-width:1201px) and (max-width:1319px) {
+  .nav .links, .page-index .nav .links { font-size:13px; }
+}
 .nav .links a, .page-index .nav .links a {
-  flex:1 1 0;
-  min-width:0;
+  flex:0 1 auto;
   min-height:48px;
-  padding:8px 10px;
+  padding:8px clamp(8px,1vw,16px);
   text-align:center;
-  white-space:normal;
+  white-space:nowrap;
   line-height:1.35;
   display:flex;
   align-items:center;
@@ -39,12 +45,13 @@
   object-fit:contain;
 }
 .hp-logo-slide img[src*="partner-dynamic"] { --partner-width:130px; }
-.hp-logo-slide img[src*="partner-ivoclar"] { --partner-width:195px; }
-.hp-logo-slide img[src*="partner-vita"] { --partner-width:140px; }
+.hp-logo-slide img[src*="partner-ivoclar"] { --partner-width:150px; }
+.hp-logo-slide img[src*="partner-vita"] { --partner-width:108px; }
 .hp-logo-slide img[src*="partner-zirkonzahn"] { --partner-width:220px; }
 .hp-logo-slide img[src*="partner-zircon"] { --partner-width:165px; }
 .hp-logo-slide img[src*="partner-dentium"] { --partner-width:220px; }
-.contact-actions, .page-index .case-panel .contact-actions { gap:24px; }
+.contact-actions, .page-index .case-panel .contact-actions { gap:20px; }
+.contact-actions .contact-email-action { margin-top:0; }
 .contact-actions small, .page-index .case-panel .contact-actions small {
   margin-bottom:10px;
   line-height:1.5;
