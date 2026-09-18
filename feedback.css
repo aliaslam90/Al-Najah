@@ -72,10 +72,12 @@
 .contact-map-card { height:auto; min-height:399px; }
 @media(max-width:1200px) {
   .nav .logo, .page-index .nav .logo { width:120px; flex-basis:120px; filter:invert(1); }
+  .nav .brand-logo { padding:6px 0; }
   .nav .links.mobile-open a { flex:none; }
 }
 @media(max-width:900px) {
-  .nav .logo, .page-index .nav .logo { width:100px; flex-basis:100px; }
+  .nav .logo, .page-index .nav .logo { width:80px; flex-basis:80px; }
+  .nav .brand-logo { padding:8px 0; }
   .contact-map-card { min-height:420px; }
 }
 @media(max-width:560px) {
