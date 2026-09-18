@@ -1,7 +1,7 @@
 /* Client revisions: shared branding, navigation and contact rhythm. */
 .nav .logo, .page-index .nav .logo {
-  width:100px;
-  flex:0 0 100px;
+  width:112px;
+  flex:0 0 112px;
   margin-right:0;
   filter:none;
 }
@@ -26,6 +26,9 @@
   display:flex;
   align-items:center;
   justify-content:center;
+}
+@media(min-width:1201px) and (max-width:1319px) {
+  .nav .links a, .page-index .nav .links a { padding-inline:8px; }
 }
 .hp-hero-intro {
   margin:0 0 18px;
@@ -68,11 +71,11 @@
 .contact-detail a { display:inline-block; }
 .contact-map-card { height:auto; min-height:399px; }
 @media(max-width:1200px) {
-  .nav .logo, .page-index .nav .logo { width:84px; flex-basis:84px; filter:invert(1); }
+  .nav .logo, .page-index .nav .logo { width:94px; flex-basis:94px; filter:invert(1); }
   .nav .links.mobile-open a { flex:none; }
 }
 @media(max-width:900px) {
-  .nav .logo, .page-index .nav .logo { width:70px; flex-basis:70px; }
+  .nav .logo, .page-index .nav .logo { width:78px; flex-basis:78px; }
   .contact-map-card { min-height:420px; }
 }
 @media(max-width:560px) {

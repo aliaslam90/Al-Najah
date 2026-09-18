@@ -21,7 +21,7 @@ import { renderCaseStudy } from './case-study.js';
 import { renderFaq } from './faq.js';
 import { renderContact } from './contact.js';
 const icon=(name,extra='')=>`<img class="icon ${extra}" src="/assets/icons/${name}.svg" alt="" aria-hidden="true" width="20" height="20">`;
-const brand=()=>'<img class="brand-logo" src="/assets/icons/logo-stacked.png" alt="Al Najah Dental Lab" width="219" height="162">';
+const brand=()=>'<img class="brand-logo" src="/assets/icons/logo-stacked.png" alt="Al Najah Dental Lab" width="1459" height="1078">';
 const page=(location.pathname.split('/').pop()||'index.html').replace('.html','')||'index';
 const pages=[['index','Home'],['about','About Us'],['services','Products & Services'],['technology','Technology'],['education','Education'],['cases','Gallery'],['faq','FAQ'],['contact','Contact Us']];
 const navItem=([p,n])=>{
