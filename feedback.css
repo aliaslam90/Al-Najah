@@ -1,7 +1,7 @@
 /* Client revisions: shared branding, navigation and contact rhythm. */
 .nav .logo, .page-index .nav .logo {
-  width:112px;
-  flex:0 0 112px;
+  width:148px;
+  flex:0 0 148px;
   margin-right:0;
   filter:none;
 }
@@ -71,11 +71,11 @@
 .contact-detail a { display:inline-block; }
 .contact-map-card { height:auto; min-height:399px; }
 @media(max-width:1200px) {
-  .nav .logo, .page-index .nav .logo { width:94px; flex-basis:94px; filter:invert(1); }
+  .nav .logo, .page-index .nav .logo { width:120px; flex-basis:120px; filter:invert(1); }
   .nav .links.mobile-open a { flex:none; }
 }
 @media(max-width:900px) {
-  .nav .logo, .page-index .nav .logo { width:78px; flex-basis:78px; }
+  .nav .logo, .page-index .nav .logo { width:100px; flex-basis:100px; }
   .contact-map-card { min-height:420px; }
 }
 @media(max-width:560px) {
