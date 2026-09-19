@@ -3,9 +3,8 @@ const contactIcon = name => `<img src="${name === 'whatsapp' ? '/assets/icons/wh
 export function renderContact() {
   const details = [
     ['pin', 'Mr. Juma Mubarak Juma Salem Building, 9th floor, Abu Dhabi, United Arab Emirates.', '', 'Visit us'],
-    ['phone', '+971527770075', 'tel:+971527770075', 'Call directly'],
-    ['phone', '+971252777075', 'tel:+971252777075', 'Landline'],
-    ['whatsapp', '+97125587947', 'https://wa.me/97125587947', 'WhatsApp'],
+    ['phone', '+97125587947', 'tel:+97125587947', 'Landline'],
+    ['whatsapp', '+97152777075', 'https://wa.me/97152777075', 'WhatsApp'],
     ['email', 'Info@alnajah-tdl.net', 'mailto:Info@alnajah-tdl.net', 'Email'],
     ['clock', 'Sunday to Friday, 09:00 – 20:00', '', 'Opening hours'],
   ];
