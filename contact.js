@@ -35,7 +35,7 @@ export function renderContact() {
         <div class="contact-map-note">
           <span>Find Us</span>
           <p>Al Najah Dental Lab<br>Mr. Juma Mubarak Juma Salem Building,<br>9th floor, Abu Dhabi, United Arab Emirates.</p>
-          <a href="https://maps.google.com/?q=Mr.+Juma+Mubarak+Juma+Salem+Building,+Abu+Dhabi,+United+Arab+Emirates" target="_blank" rel="noopener noreferrer" class="contact-map-link">Get Directions ↗</a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Al+Najah+Dental+Lab%2C+Mr.+Juma+Mubarak+Juma+Salem+Building%2C+Abu+Dhabi%2C+United+Arab+Emirates" target="_blank" rel="noopener noreferrer" class="contact-map-link">Get Directions ↗</a>
         </div>
       </div>
     </section>`;
