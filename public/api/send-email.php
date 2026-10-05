@@ -40,10 +40,16 @@ $lock = fopen(sys_get_temp_dir() . '/alnajah-mail-' . $key, 'c+');
 if (!$lock || !flock($lock, LOCK_EX)) respond(503, false, 'Please try again later.');
 $attempts = json_decode(stream_get_contents($lock), true) ?: [];
 $attempts = array_values(array_filter($attempts, function ($t) { return is_int($t) && $t > time() - 600; }));
-if (count($attempts) >= 5) respond(429, false, 'Please try again later.');
+if (count($attempts) >= 5) {
+    header('Retry-After: 600');
+    respond(429, false, 'Too many requests. Please wait 10 minutes.');
+}
 $attempts[] = time(); rewind($lock); ftruncate($lock, 0); fwrite($lock, json_encode($attempts));
 flock($lock, LOCK_UN); fclose($lock);
 $subject = $type === 'case' ? 'New case enquiry — Al Najah Dental Lab' : 'Newsletter subscription enquiry';
 $headers = "From: Al Najah Dental Lab <info@alnajahlab.com>\r\nReply-To: $email\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8";
-if (!function_exists('mail') || !@mail('info@alnajahlab.com', $subject, $body, $headers)) respond(503, false, 'Mail service unavailable.');
+if (!function_exists('mail') || !@mail('info@alnajahlab.com', $subject, $body, $headers)) {
+    error_log('Al Najah website: mail transport rejected a ' . $type . ' enquiry.');
+    respond(503, false, 'Mail service unavailable.');
+}
 respond(200, true, 'Message accepted by the mail server.');
