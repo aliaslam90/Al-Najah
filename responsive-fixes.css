@@ -1,0 +1,19 @@
+/* Keep the map unobstructed; put location details below the interactive view. */
+.contact-map-card { display:flex; flex-direction:column; height:auto; min-height:0; }
+.contact-map-iframe { position:relative; inset:auto; flex:none; height:380px; min-height:320px; }
+.contact-map-note { position:static; max-width:none; border-radius:0; box-shadow:none; padding:20px 24px; }
+.contact-locations { grid-template-columns:minmax(260px,404px) minmax(0,1fr); gap:32px; }
+.contact-address-card { height:auto; min-height:399px; }
+.contact-detail, .form-grid > *, .footer-grid > *, .case-panel > * { min-width:0; }
+.contact-detail a, .contact-detail span, .contact-email-action { overflow-wrap:anywhere; }
+.form input, .form select, .newsletter input { min-width:0; max-width:100%; font-size:16px; }
+.form-status { white-space:normal; overflow-wrap:anywhere; }
+.form-honeypot { position:absolute; width:1px; height:1px; clip-path:inset(100%); overflow:hidden; }
+button:disabled { cursor:wait; opacity:.65; }
+@media(max-width:900px) { .contact-locations { grid-template-columns:1fr; } }
+@media(max-width:560px) {
+  .contact-map-iframe { height:340px; }
+  .contact-map-note { padding:18px; }
+  .form-grid { grid-template-columns:1fr; }
+  .form-grid .wide { grid-column:auto; }
+}

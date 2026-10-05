@@ -1,0 +1,13 @@
+# Updated Al Najah website
+
+Run `npm run build`. Upload the contents of `dist/` to the hosting document root, including the hidden `.htaccess` and the `api/` directory. Do not upload the source project or node_modules.
+
+The ZIP supplied on October 5, 2026 contains compiled production files rather than editable source. `production-baseline.js` and `production-baseline.css` preserve that newer application, including the loader, updated assets, and layout. `src.js` now builds that baseline with `forms.js` and `responsive-fixes.css`. The earlier source modules and `src-legacy.js` are retained for reference; they are not active build inputs. HTML metadata, sitemap, robots, manifest, 404 page, and Apache configuration were synchronized from the ZIP.
+
+Both case requests and newsletter enquiries POST to `/api/send-email.php`. The recipient is fixed to info@alnajahlab.com. PHP 7.4+ with an enabled `mail()` transport is required. Configure the hosting mail transport and authorize info@alnajahlab.com as a sender (including the provider's required SPF/DKIM settings). If the hosting plan does not support PHP or mail(), use a supported authenticated mail service before deployment. Never put mail credentials into browser JavaScript.
+
+Success means the hosting mail transport accepted the message, not confirmed delivery to the inbox. Verify a case request and a newsletter enquiry on the deployed host, check the destination inbox and spam folder, and confirm Reply-To uses the submitted address. Local Vite does not execute PHP. No real email was sent during local checks, and PHP execution could not be checked because PHP is unavailable locally.
+
+Validation: production build passed; all nine routes were checked at 320, 768 and 1440 pixels with no document overflow or broken images detected. The contact map visibly rendered streets and the lab marker. The address note sits below the map so it cannot obscure the marker. Form client behavior passed checks for server acceptance, rejection and network errors, retaining entered data on failure. Favicons were flattened onto opaque white backgrounds and their HTML URLs versioned to refresh cached icons.
+
+Sharing fix: the live domain is https://alnajahlab.com/. The supplied ZIP incorrectly used alnajah-tdl.net in canonical, Open Graph, Twitter and structured-data URLs. These now use the actual domain, including the absolute preview image URL. Upload the rebuilt HTML and image assets together. After deployment, verify the image returns HTTP 200 with image/png and use a fresh shared URL (for example https://alnajahlab.com/?preview=2) to test past cached previews. WhatsApp preview display and cache refresh remain controlled by WhatsApp.

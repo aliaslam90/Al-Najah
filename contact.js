@@ -5,7 +5,7 @@ export function renderContact() {
     ['pin', 'Mr. Juma Mubarak Juma Salem Building, 9th floor, Abu Dhabi, United Arab Emirates.', '', 'Visit us'],
     ['phone', '+97125587947', 'tel:+97125587947', 'Landline'],
     ['whatsapp', '+97152777075', 'https://wa.me/97152777075', 'WhatsApp'],
-    ['email', 'Info@alnajah-tdl.net', 'mailto:Info@alnajah-tdl.net', 'Email'],
+    ['email', 'info@alnajahlab.com', 'mailto:info@alnajahlab.com', 'Email'],
     ['clock', 'Sunday to Friday, 09:00 – 20:00', '', 'Opening hours'],
   ];
 
