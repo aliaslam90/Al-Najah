@@ -33,3 +33,20 @@ button:disabled { cursor:wait; opacity:.65; }
   .home-gallery-window { overflow-x:auto; }
   .home-gallery-group[aria-hidden] { display:none; }
 }
+
+/* Consistent active-page marker on every navigation item and viewport. */
+.nav .links a.active { position:relative; }
+.nav .links a.active::after,
+.page-index .nav .links a.active::after,
+.nav .links.mobile-open a.active::after {
+  content:'';
+  display:block;
+  position:absolute;
+  bottom:4px;
+  left:50%;
+  transform:translateX(-50%);
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:currentColor;
+}
