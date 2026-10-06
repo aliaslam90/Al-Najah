@@ -41,7 +41,7 @@ const benefits=[
 ];
 const gallery=[
  ['updated-implant-bridge-20261006.webp','Implant Solutions','full-arch-zirconia'],
- ['updated-implant-bridge-20261006.webp','Fixed and Removable Prosthetic','implant-bridge'],
+ ['updated-denture-20261006.webp','Fixed and Removable Prosthetic','digital-denture'],
  ['updated-smile-design-20261006.webp','Aesthetic & Cosmetic','smile-design'],
  ['updated-layered-crowns-20261006.webp','Digital Dentistry','layered-crowns']
 ];
