@@ -25,7 +25,7 @@ button:disabled { cursor:wait; opacity:.65; }
 .home-gallery-card { position:relative; display:block; flex:none; width:320px; height:380px; overflow:hidden; border-radius:24px; background:#153c35; }
 .home-gallery-card img { width:100%; height:100%; object-fit:cover; }
 .home-gallery-card span { position:absolute; bottom:0; left:0; right:0; padding:48px 22px 22px; background:linear-gradient(transparent,rgba(0,0,0,.85)); color:#fff; font-size:20px; line-height:1.3; }
-.home-gallery:hover .home-gallery-track, .home-gallery:focus-within .home-gallery-track { animation-play-state:paused; }
+.home-gallery-track.card-hovered, .home-gallery-track:focus-within { animation-play-state:paused; }
 @keyframes home-gallery-move { to { transform:translateX(-50%); } }
 @media(max-width:560px) { .home-gallery-card { width:260px; height:320px; } .home-gallery-group { gap:16px; padding-right:16px; } }
 @media(prefers-reduced-motion:reduce) {

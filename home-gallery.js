@@ -12,6 +12,13 @@ export function initializeHomeGallery() {
     <a class="hp-outline" href="/cases.html">View full gallery ↗</a></div></div>
     <div class="home-gallery-window"><div class="home-gallery-track">
       <div class="home-gallery-group">${cards}</div>
-      <div class="home-gallery-group" aria-hidden="true" inert>${cards}</div>
+      <div class="home-gallery-group" aria-hidden="true">${cards.replaceAll('class="home-gallery-card"', 'class="home-gallery-card" tabindex="-1"')}</div>
     </div></div></section>`);
+  const track = document.querySelector('[data-home-gallery] .home-gallery-track');
+  track.addEventListener('mouseover', event => {
+    track.classList.toggle('card-hovered', Boolean(event.target.closest('.home-gallery-card')));
+  });
+  track.addEventListener('mouseout', event => {
+    track.classList.toggle('card-hovered', Boolean(event.relatedTarget?.closest?.('.home-gallery-card')));
+  });
 }
