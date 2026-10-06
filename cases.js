@@ -14,7 +14,7 @@ export const renderCases = () => `
       ${caseStudies.map(item=>`<a class="case-card" data-category="${item.category}" href="/case-study.html?case=${item.slug}" aria-label="Read case study: ${item.title}">
         <img src="/assets/cases-page/${item.image}" alt="${item.title}" loading="lazy">
         <div class="case-category">${item.categoryLabel}</div>
-        <div class="case-copy"><small>${item.units.replace(/\s*units\b/i,'')}</small><h3>${item.title}</h3></div>
+        <div class="case-copy"><small>${item.restoration}</small><h3>${item.title}</h3></div>
         <span class="case-open" aria-hidden="true"><img class="icon" src="/assets/icons/arrow.svg" alt="" width="16" height="16"></span>
       </a>`).join('')}
     </div>

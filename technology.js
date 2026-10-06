@@ -92,7 +92,7 @@ export const renderTechnology = () => `
 
   <section class="tech-process">
     <div class="tech-process-intro">
-      <div><div class="eyebrow">Digital Workflow</div><h2>From scan to seat,<br><i>in five clear steps.</i></h2></div>
+      <div><div class="eyebrow">Digital Workflow</div><h2>From scan to Smile,<br><i>in five clear steps.</i></h2></div>
       <p>Every case follows the same documented path. You always know exactly where your restoration is in the lab.</p>
     </div>
     <div class="tech-steps">

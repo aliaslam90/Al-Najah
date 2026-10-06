@@ -12,14 +12,14 @@ export function renderCaseStudy() {
     <header class="cd-hero">
       <div class="cd-hero-media"><img src="/assets/cases-page/${current.image}" alt="${current.title}"></div>
       <div class="cd-hero-shade"></div>
-      <div class="cd-hero-copy"><a href="/cases.html">← Back to case studies</a><p>${current.categoryLabel} · ${current.units}</p><h1>${current.title}</h1></div>
+      <div class="cd-hero-copy"><a href="/cases.html">← Back to case studies</a><p>${current.categoryLabel} · ${current.restoration}</p><h1>${current.title}</h1></div>
     </header>
     <section class="cd-intro">
       <div><p class="eyebrow">Case Overview</p><h2>Precision built around the patient.</h2></div>
       <p>This representative case study demonstrates the collaborative planning, material control, and documented quality checks behind every Al Najah Dental Lab restoration. The clinical details are placeholder content ready for your final case notes.</p>
     </section>
     <section class="cd-facts" aria-label="Case facts">
-      ${[['Restoration',current.units],['Material',current.material],['Workflow',current.workflow],['Turnaround',current.turnaround],['Shade',current.shade]].map(([label,value])=>`<div><small>${label}</small><strong>${value}</strong></div>`).join('')}
+      ${[['Restoration',current.restoration],['Material',current.material],['Workflow',current.workflow],['Turnaround',current.turnaround],['Shade',current.shade]].map(([label,value])=>`<div><small>${label}</small><strong>${value}</strong></div>`).join('')}
     </section>
     <section class="cd-story">
       <div class="cd-story-image"><img src="/assets/cases-page/${current.image}" alt="Close view of ${current.title}" loading="lazy"></div>

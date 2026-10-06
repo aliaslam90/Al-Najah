@@ -13,10 +13,10 @@ const technology=[
   ['424-2494-img-svg5.svg','3D Printing','In-house printing of models, surgical guides, and try-ins often overnight.']
 ];
 const featuredCases=[
-  ['424-2585-img-anterior-lithium-disilicate-veneers.png','Aesthetic','Anterior Lithium Disilicate Veneers','anterior-veneers'],
-  ['424-2585-img-article.png','Implant','Single Full-Arch Zirconia, Screw-Retained - Cemented','full-arch-zirconia'],
-  ['424-2585-img-article1.png','Restorative','Anterior and Posterior Crown and Bridge','posterior-crowns'],
-  ['424-2585-img-article2.png','Removable','Full dentures and partial, orthodontic appliances','digital-denture']
+  ['updated-anterior-20261006.webp','Aesthetic','Anterior Lithium Disilicate Veneers','anterior-veneers'],
+  ['updated-full-arch-20261006.webp','Implant','Single Full-Arch Zirconia, Screw-Retained - Cemented','full-arch-zirconia'],
+  ['updated-posterior-20261006.webp','Restorative','Anterior and Posterior Crown and Bridge','posterior-crowns'],
+  ['updated-denture-20261006.webp','Removable','Full dentures and partial, orthodontic appliances','digital-denture']
 ];
 const services=[
   ['Fixed','Prosthetics','Crowns, bridges, and inlays crafted with precision for lasting aesthetics and function.'],
@@ -40,10 +40,10 @@ const benefits=[
   ['424-2862-img-svg3.svg','Accountability','A named point of contact for every doctor, and full traceability on every case.']
 ];
 const gallery=[
- ['gallery-implant-solutions.jpg','Implant Solutions','full-arch-zirconia'],
- ['gallery-fixed-removable.jpg','Fixed and Removable Prosthetic','implant-bridge'],
- ['424-2969-img-veneer-smile-design.png','Aesthetic & Cosmetic','smile-design'],
- ['424-2969-img-layered-ceramic-crowns.png','Digital Dentistry','layered-crowns']
+ ['updated-implant-bridge-20261006.webp','Implant Solutions','full-arch-zirconia'],
+ ['updated-implant-bridge-20261006.webp','Fixed and Removable Prosthetic','implant-bridge'],
+ ['updated-smile-design-20261006.webp','Aesthetic & Cosmetic','smile-design'],
+ ['updated-layered-crowns-20261006.webp','Digital Dentistry','layered-crowns']
 ];
 const testimonials=[
   ['The precision of their zirconia restorations is unmatched. We rarely need chairside adjustments, which saves us significant time and keeps our patients delighted.','Dr. Ahmed','Dubai Premier Dental · Dubai, UAE','A'],
@@ -70,7 +70,7 @@ export function renderHomepage(){return `
 
     <section class="hp-services"><div class="hp-two-head"><div><p class="hp-kicker">Our Services</p><h2>Comprehensive<br><i>dental solutions.</i></h2></div><p>From fixed prosthetics to digital workflows, every restoration delivered with precision, care, and master craftsmanship.</p></div><div class="hp-service-grid">${services.map(([h,i,p],n)=>`<a class="hp-service-card hp-service-${n+1}" href="services.html"><span class="hp-card-top">[ ${n+1} ] <b>${arrow}</b></span><span class="hp-service-copy"><strong>${h}${i?` <i>${i}</i>`:''}</strong><small>${p}</small>${n===0?'<em>Most Requested</em>':''}</span></a>`).join('')}</div></section>
 
-    <section class="hp-workflow"><div class="hp-workflow-head"><p class="hp-kicker">Digital Workflow</p><h2>From scan to seat,<br><i>in five clear steps.</i></h2><p>Every case follows the same documented path, you always know exactly where your restoration is in the lab.</p></div><div class="hp-workflow-grid">${workflow.map(([ic,h,p],i)=>`<article><span class="hp-step-icon">${fig(ic)}<b>${i+1}</b></span><h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
+    <section class="hp-workflow"><div class="hp-workflow-head"><p class="hp-kicker">Digital Workflow</p><h2>From scan to Smile,<br><i>in five clear steps.</i></h2><p>Every case follows the same documented path, you always know exactly where your restoration is in the lab.</p></div><div class="hp-workflow-grid">${workflow.map(([ic,h,p],i)=>`<article><span class="hp-step-icon">${fig(ic)}<b>${i+1}</b></span><h3>${h}</h3><p>${p}</p></article>`).join('')}</div></section>
 
     <section class="hp-choose hp-rounded"><div class="hp-choose-head"><p class="hp-kicker">Why Choose Us</p><h2><i>Where every case is treated like<br>it carries your name.</i></h2></div><div class="hp-promise"><article><span>The Promise</span><h3>A restoration is never just a restoration.</h3><p>It is a patient sitting in your chair, trusting that what you place will feel like it was always theirs. We build for that moment, and we have done so since 2012.</p></article><div><p>We design the entire process so the work fits the first time, from the first scan to the case in your hand. When we give you a date, we mean it. When you call, a real person who knows your case answers. And when a patient smiles at the result, that is the only review we are working for.</p><p>This is what a partnership feels like when precision, honesty, and care are not promises on a page, but the way we work every single day.</p><blockquote>Bring us your most difficult case. That is where we do our best work.</blockquote></div></div><h3 class="hp-possible"><i>What Makes This Possible</i></h3><div class="hp-cap-grid">${capabilities.map((x,i)=>`<article><b>${i+1}</b><span>${x}</span></article>`).join('')}</div></section>
 
