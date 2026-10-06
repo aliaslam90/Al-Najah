@@ -17,7 +17,7 @@ import { initializeForms } from "./forms.js";
 
     <section class="hp-services"><div class="hp-two-head"><div><p class="hp-kicker">Our Services</p><h2>Comprehensive<br><i>dental solutions.</i></h2></div><p>From fixed prosthetics to digital workflows, every restoration delivered with precision, care, and master craftsmanship.</p></div><div class="hp-service-grid">${G.map(([e,s,r],d)=>`<a class="hp-service-card hp-service-${d+1}" href="services.html"><span class="hp-card-top">[ ${d+1} ] <b>${b}</b></span><span class="hp-service-copy"><strong>${e}${s?` <i>${s}</i>`:""}</strong><small>${r}</small>${d===0?"<em>Most Requested</em>":""}</span></a>`).join("")}</div></section>
 
-    <section class="hp-workflow"><div class="hp-workflow-head"><p class="hp-kicker">Digital Workflow</p><h2>From scan to Smile,<br><i>in five clear steps.</i></h2><p>Every case follows the same documented path, you always know exactly where your restoration is in the lab.</p></div><div class="hp-workflow-grid">${J.map(([e,s,r],d)=>`<article><span class="hp-step-icon">${$(e)}<b>${d+1}</b></span><h3>${s}</h3><p>${r}</p></article>`).join("")}</div></section>
+    <section class="hp-workflow"><div class="hp-workflow-head"><p class="hp-kicker">Digital Workflow</p><h2>From scan to smile,<br><i>in five clear steps.</i></h2><p>Every case follows the same documented path, you always know exactly where your restoration is in the lab.</p></div><div class="hp-workflow-grid">${J.map(([e,s,r],d)=>`<article><span class="hp-step-icon">${$(e)}<b>${d+1}</b></span><h3>${s}</h3><p>${r}</p></article>`).join("")}</div></section>
 
     <section class="hp-choose hp-rounded"><div class="hp-choose-head"><p class="hp-kicker">Why Choose Us</p><h2><i>Where every case is treated like<br>it carries your name.</i></h2></div><div class="hp-promise"><article><span>The Promise</span><h3>A restoration is never just a restoration.</h3><p>It is a patient sitting in your chair, trusting that what you place will feel like it was always theirs. We build for that moment, and we have done so since 2012.</p></article><div><p>We design the entire process so the work fits the first time, from the first scan to the case in your hand. When we give you a date, we mean it. When you call, a real person who knows your case answers. And when a patient smiles at the result, that is the only review we are working for.</p><p>This is what a partnership feels like when precision, honesty, and care are not promises on a page, but the way we work every single day.</p><blockquote>Bring us your most difficult case. That is where we do our best work.</blockquote></div></div><h3 class="hp-possible"><i>What Makes This Possible</i></h3><div class="hp-cap-grid">${Z.map((e,s)=>`<article><b>${s+1}</b><span>${e}</span></article>`).join("")}</div></section>
 
@@ -90,7 +90,7 @@ import { initializeForms } from "./forms.js";
 
   <section class="tech-process">
     <div class="tech-process-intro">
-      <div><div class="eyebrow">Digital Workflow</div><h2>From scan to Smile,<br><i>in five clear steps.</i></h2></div>
+      <div><div class="eyebrow">Digital Workflow</div><h2>From scan to smile,<br><i>in five clear steps.</i></h2></div>
       <p>Every case follows the same documented path. You always know exactly where your restoration is in the lab.</p>
     </div>
     <div class="tech-steps">
