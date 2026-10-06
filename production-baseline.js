@@ -128,7 +128,7 @@ import { initializeForms } from "./forms.js";
       ${A.map(e=>`<a class="case-card" data-category="${e.category}" href="/case-study.html?case=${e.slug}" aria-label="Read case study: ${e.title}">
         <img src="/assets/cases-page/${e.image}" alt="${e.title}" loading="lazy">
         <div class="case-category">${e.categoryLabel}</div>
-        <div class="case-copy"><small>${e.restoration}</small><h3>${e.title}</h3></div>
+        <div class="case-copy"><h3>${e.title}</h3></div>
         <span class="case-open" aria-hidden="true"><img class="icon" src="/assets/icons/arrow.svg" alt="" width="16" height="16"></span>
       </a>`).join("")}
     </div>
